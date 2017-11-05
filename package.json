@@ -15,6 +15,7 @@
   "main": "main.js",
   "scripts": {
     "build": "tsc",
-    "start": "electron ."
+    "start": "electron .",
+    "sass": "sass --watch scss:assets"
   }
 }
