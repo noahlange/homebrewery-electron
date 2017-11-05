@@ -78,24 +78,32 @@ body {
 * {
   -webkit-print-color-adjust: exact; }
 
+.phb:nth-child(even) {
+  padding-left: 0.85in;
+  padding-right: 0.65in; }
+
+.phb:nth-child(odd) {
+  padding-right: 0.85in;
+  padding-left: 0.65in; }
+
 .phb {
   column-count: 2;
   column-fill: auto;
-  column-gap: 1cm;
+  column-gap: 0.425in;
   column-width: 8cm;
   counter-increment: phb-page-numbers;
   position: relative;
   z-index: 15;
   box-sizing: border-box;
   overflow: hidden;
-  height: 279.4mm;
-  width: 215.9mm;
-  padding: 1cm 1.7cm;
-  padding-bottom: 1.5cm;
+  height: 11in;
+  width: 8.5in;
+  padding-top: 0.65in;
+  padding-bottom: 0.65in;
   background-color: #eee5ce;
   background-image: url("images/bg.jpg");
   font-family: BookInsanity;
-  font-size: 0.317cm;
+  font-size: 8.25pt;
   text-rendering: optimizeLegibility;
   page-break-before: always;
   page-break-after: always; }
