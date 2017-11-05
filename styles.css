@@ -1,0 +1,66 @@
+@font-face {
+  font-family: Inconsolata;
+  src: url('Inconsolata.otf');
+}
+
+@media screen {
+  #preview {
+    height: 100vh;
+    overflow-y: scroll;
+    margin: 0;
+    padding: 0;
+  }
+  body {
+    overflow: hidden;
+  }
+}
+@media print {
+  .phb .descriptive,
+  .phb blockquote {
+    box-shadow: none;
+  }
+  .editor {
+    display: none;
+  }
+}
+.CodeMirror {
+  height: 100vh;
+  word-wrap: break-word;
+  padding: 1.5rem 0.5rem;
+  font-family: Inconsolata;
+}
+.Codemirror-scroll {
+  max-width: calc(100vw - 8.5in);
+  height: calc(100% - 2rem);
+}
+.cm-s-railscasts.CodeMirror,
+.cm-s-railscasts .CodeMirror-gutters {
+  background-color: transparent;
+}
+.cm-s-railscasts .CodeMirror-linenumber {
+  color: rgba(255, 255, 255, 0.35);
+}
+.CodeMirror-wrap pre {
+  word-wrap: break-word;
+  white-space: pre-wrap;
+  word-break: normal;
+}
+#react-root {
+  margin-top: -2rem;
+}
+#grab-bar {
+  height: 2rem;
+  -webkit-app-region: drag;
+}
+.flex {
+  display: flex;
+}
+.editor {
+  flex: 3 0 auto;
+}
+.preview {
+  flex: 0 1 8.5in;
+}
+.phb {
+  overflow: initial !important;
+}
