@@ -137,11 +137,7 @@ const template = [
             label: sansCSS,
             type: 'radio',
             checked: editorTheme === sansCSS,
-            click: () => {
-              editorTheme = sansCSS;
-              store.set('theme.editor', sansCSS);
-              mainWindow.webContents.send('theme.editor', sansCSS)
-            }
+            click: () => store.set('theme.editor', sansCSS)
           };
         })
       },
@@ -153,9 +149,7 @@ const template = [
             type: 'radio',
             checked: previewTheme === 'green',
             click: () => {
-              previewTheme = 'green';
               store.set('theme.preview', 'green');
-              mainWindow.webContents.send('theme.preview', 'green');
             }
           },
           {
@@ -163,9 +157,7 @@ const template = [
             type: 'radio',
             checked: previewTheme === 'orange',
             click: () => {
-              previewTheme = 'orange';
               store.set('theme.preview', 'orange');
-              mainWindow.webContents.send('theme.preview', 'orange');
             }
           },
           {
@@ -173,30 +165,19 @@ const template = [
             type: 'radio',
             checked: previewTheme === 'pink',
             click: () => {
-              previewTheme = 'pink';
               store.set('theme.preview', 'pink');
-              mainWindow.webContents.send('theme.preview', 'pink');
             }
           },
           {
             label: 'Teal',
             type: 'radio',
             checked: previewTheme === 'teal',
-            click: () => {
-              previewTheme = 'teal';
-              store.set('theme.preview', 'teal');
-              mainWindow.webContents.send('theme.preview', 'teal');
-            }
+            click: () => store.set('theme.preview', 'teal')
           },
           {
             label: 'Grey',
             type: 'radio',
-            checked: previewTheme === 'grey',
-            click: () => {
-              previewTheme = 'grey';
-              store.set('theme.preview', 'grey');
-              mainWindow.webContents.send('theme.preview', 'grey');
-            }
+            click: () => store.set('theme.preview', 'grey')
           }
         ]
       }
@@ -227,6 +208,14 @@ function createWindow() {
       slashes: true
     })
   );
+
+  store.onDidChange('theme.preview', newValue => {
+    mainWindow.webContents.send('theme.preview', newValue);
+  });
+
+  store.onDidChange('theme.editor', newValue => {
+    mainWindow.webContents.send('theme.editor', newValue);
+  });
 
   // Open the DevTools.
   // mainWindow.webContents.openDevTools()
