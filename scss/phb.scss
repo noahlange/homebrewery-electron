@@ -1,13 +1,6 @@
 @import 'reset.scss';
 @import 'fonts.scss';
-
-//Colors
-$background: #eee5ce;
-$noteGreen: #e0e5c1;
-$headerUnderline: #c9ad6a;
-$horizontalRule: #9c2b1b;
-$headerText: #58180d;
-$monsterStatBackground: #fdf1dc;
+@import 'palettes.scss';
 
 body {
   counter-reset: phb-page-numbers;
@@ -56,8 +49,6 @@ body {
   width: 8.5in;
   padding-top: 0.65in;
   padding-bottom: 0.65in;
-  background-color: $background;
-  background-image: url('images/bg.jpg');
   font-family: BookInsanity;
   font-size: 8.25pt;
   text-rendering: optimizeLegibility;
@@ -121,22 +112,26 @@ body {
   h3,
   h4 {
     margin-top: 0.2em;
-    margin-bottom: 0.2em;
+    margin-bottom: 0.25em;
     font-family: MrJeeves;
     font-weight: 800;
-    color: $headerText;
   }
   h1 {
     column-span: all;
     font-size: 0.987cm;
     -webkit-column-span: all;
     -moz-column-span: all;
+    & + p {
+      overflow: initial;
+      margin-top: 0.15em;
+    }
     & + p::first-letter {
       float: left;
       font-family: Solbera;
       font-size: 10em;
       color: #222;
       line-height: 0.8em;
+      letter-spacing: 0.075em;
     }
   }
   h2 {
@@ -144,14 +139,13 @@ body {
   }
   h3 {
     font-size: 0.529cm;
-    border-bottom: 2px solid $headerUnderline;
   }
   h4 {
     margin-bottom: 0em;
     font-size: 0.458cm;
   }
   h5 {
-    margin-bottom: 0.2em;
+    margin-top: 0.2em;
     font-family: ScalySansSC;
     font-size: 0.423cm;
     font-weight: 900;
@@ -184,9 +178,6 @@ body {
         td {
           padding: 0.3em 0.1em;
         }
-        &:nth-child(odd) {
-          background-color: $noteGreen;
-        }
       }
     }
   }
@@ -196,18 +187,18 @@ body {
   .block-note {
     @include sans-serif();
     box-sizing: border-box;
-    margin-bottom: 1em;
-    padding: 5px 10px;
-    background-color: $noteGreen;
+    margin: 1em 0 2em 0;
     border-style: solid;
     border-width: 11px;
-    border-image-outset: 9px 0px;
     border-image: url('images/block-note.png') 11;
     box-shadow: 1px 4px 14px #888;
-    p,
-    ul {
+    border-image-outset: 9px 0px;
+    p, ul {
       font-size: 0.352cm;
       line-height: 1.1em;
+    }
+    p:last-child {
+      padding-bottom: 0;
     }
   }
   //If a note starts a column, give it space at the top to render border
@@ -230,7 +221,6 @@ body {
   }
   .block-stats, .block-stats-wide {
     position: relative;
-    background-color: $monsterStatBackground;
     border-style: solid;
     border-image: url('images/block-monster.png') 10;
     border-width: 10px;
@@ -243,10 +233,6 @@ body {
     h3 {
       font-family: ScalySans;
       font-weight: 400;
-      border-bottom: 1px solid $headerText;
-    }
-    hr + ul {
-      color: $headerText;
     }
     ul {
       @include sans-serif();
@@ -267,9 +253,6 @@ body {
           background-color: transparent;
         }
       }
-    }
-    table {
-      color: $headerText;
     }
     p + p {
       margin-top: 0em;
@@ -299,7 +282,6 @@ body {
     height: 50px;
     width: 100%;
     background-size: cover;
-    background-image: url('images/border.png');
   }
   &:nth-child(even) {
     &:after {
@@ -319,7 +301,6 @@ body {
     bottom: 22px;
     width: 50px;
     font-size: 0.9em;
-    color: #c9ad6a;
     text-align: center;
     &.auto::after {
       content: counter(phb-page-numbers);
@@ -332,7 +313,6 @@ body {
     z-index: 150;
     width: 200px;
     font-size: 0.8em;
-    color: #c9ad6a;
     text-align: right;
   }
   //*****************************
@@ -445,13 +425,11 @@ body {
 .phb .block-descriptive {
   display: block-inline;
   margin-bottom: 1em;
-  background-color: #faf7ea;
   font-family: ScalySans;
   border-style: solid;
   border-width: 7px;
   border-image: url('images/block-descriptive.png') 12 round;
   border-image-outset: 4px;
-  box-shadow: 0px 0px 6px #faf7ea;
   p {
     display: block;
     padding-bottom: 0px;

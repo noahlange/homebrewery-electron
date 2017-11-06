@@ -35,6 +35,7 @@ some particular kind of styling.
 | Block       | Name              | CSS class                       |
 |:-----------:|:-----------------:|:-------------------------------:|
 | Spell list  | spells            | .block-spells                   |
+| Note        | note              | .block-note
 | Descriptive | descriptive       | .block-descriptive              |
 | Stat Block  | stats, stats-wide | .block-stats, .block-stats-wide |
 | Class Table | class, class-wide | .block-class, .block-class-wide |

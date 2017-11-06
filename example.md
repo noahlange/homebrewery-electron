@@ -11,7 +11,7 @@ When you create your own homebrew you will be given a *edit url* and a *share ur
 
 Anyone with the *share url* will be able to access a read-only version of your homebrew.
 
-```descriptive
+```note
 ##### PDF Exporting
 PDF Printing works best in Chrome. If you are having quality/consistency issues, try using Chrome to print instead.
 
@@ -22,7 +22,7 @@ After clicking the "Print" item in the navbar a new page will open and a print d
 * In **Options** make sure "Background Images" is selected.
 * Hit print and enjoy! You're done!
 
-If you want to save ink or have a monochrome printer, add the **Ink Friendly** snippet to your brew before you print
+If you want to save ink or have a monochrome printer, add the **Ink Friendly** snippet to your brew before you print.
 ```
 
 ## New Things All The Time!
