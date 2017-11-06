@@ -24,10 +24,6 @@
   max-width: calc(100vw - 8.5in);
   height: calc(100% - 2rem); }
 
-.cm-s-railscasts.CodeMirror,
-.cm-s-railscasts .CodeMirror-gutters {
-  background-color: transparent; }
-
 .cm-s-railscasts .CodeMirror-linenumber {
   color: rgba(255, 255, 255, 0.35); }
 

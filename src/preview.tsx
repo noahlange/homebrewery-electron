@@ -2,11 +2,10 @@ import * as React from 'react';
 import markdown from './markdown';
 
 export default class Preview extends React.Component<any, any> {
-  public theme = null;
   public renderPage(text: string, i: number) {
     return (
       <div
-        className={ `phb ${ this.theme || '' }` }
+        className="phb"
         key={i}
         dangerouslySetInnerHTML={{ __html: markdown(text) }}
       />
@@ -20,6 +19,6 @@ export default class Preview extends React.Component<any, any> {
   }
 
   public render() {
-    return <div id="preview">{this.renderPages()}</div>;
+    return <div>{this.renderPages()}</div>;
   }
 }

@@ -6,12 +6,7 @@ export default class Editor extends React.Component<any, any> {
   public render() {
     return (
       <CodeMirror
-        options={{
-          mode: 'gfm',
-          lineNumbers: true,
-          lineWrapping: true,
-          theme: 'railscasts'
-        }}
+        options={{ mode: 'gfm', lineNumbers: true, lineWrapping: true, theme: this.props.theme }}
         value={ this.props.value }
         onChange={this.props.onChange}
       />

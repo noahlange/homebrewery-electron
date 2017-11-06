@@ -1,16 +1,23 @@
 const { dialog, Menu, MenuItem, ipcMain, shell } = require('electron');
-const { writeFileSync } = require('fs');
+const { writeFileSync, readdirSync } = require('fs');
+const path = require('path');
 const electron = require('electron');
+const Store = require('electron-store');
+const store = new Store();
 const app = electron.app;
 const BrowserWindow = electron.BrowserWindow;
-
-const path = require('path');
+const themes = readdirSync(
+  path.resolve(__dirname, 'node_modules/codemirror/theme')
+);
 const url = require('url');
 
 // Keep a global reference of the window object, if you don't, the window will
 // be closed automatically when the JavaScript object is garbage collected.
 let mainWindow;
 let current;
+
+let previewTheme = store.get('theme.preview');
+let editorTheme = store.get('theme.editor');
 
 const template = [
   {
@@ -120,6 +127,82 @@ const template = [
     ]
   },
   {
+    label: 'Themes',
+    submenu: [
+      {
+        label: 'Editor',
+        submenu: themes.map(t => {
+          const sansCSS = path.basename(t, '.css');
+          return {
+            label: sansCSS,
+            type: 'radio',
+            checked: editorTheme === sansCSS,
+            click: () => {
+              editorTheme = sansCSS;
+              store.set('theme.editor', sansCSS);
+              mainWindow.webContents.send('theme.editor', sansCSS)
+            }
+          };
+        })
+      },
+      {
+        label: 'Preview',
+        submenu: [
+          {
+            label: 'Green',
+            type: 'radio',
+            checked: previewTheme === 'green',
+            click: () => {
+              previewTheme = 'green';
+              store.set('theme.preview', 'green');
+              mainWindow.webContents.send('theme.preview', 'green');
+            }
+          },
+          {
+            label: 'Orange',
+            type: 'radio',
+            checked: previewTheme === 'orange',
+            click: () => {
+              previewTheme = 'orange';
+              store.set('theme.preview', 'orange');
+              mainWindow.webContents.send('theme.preview', 'orange');
+            }
+          },
+          {
+            label: 'Pink',
+            type: 'radio',
+            checked: previewTheme === 'pink',
+            click: () => {
+              previewTheme = 'pink';
+              store.set('theme.preview', 'pink');
+              mainWindow.webContents.send('theme.preview', 'pink');
+            }
+          },
+          {
+            label: 'Teal',
+            type: 'radio',
+            checked: previewTheme === 'teal',
+            click: () => {
+              previewTheme = 'teal';
+              store.set('theme.preview', 'teal');
+              mainWindow.webContents.send('theme.preview', 'teal');
+            }
+          },
+          {
+            label: 'Grey',
+            type: 'radio',
+            checked: previewTheme === 'grey',
+            click: () => {
+              previewTheme = 'grey';
+              store.set('theme.preview', 'grey');
+              mainWindow.webContents.send('theme.preview', 'grey');
+            }
+          }
+        ]
+      }
+    ]
+  },
+  {
     role: 'window',
     submenu: [{ role: 'minimize' }, { role: 'close' }]
   }
@@ -131,7 +214,6 @@ function createWindow() {
     width: 1680,
     height: 1050,
     minWidth: 1280,
-    vibrancy: 'ultra-dark',
     titleBarStyle: 'hidden'
   });
 
