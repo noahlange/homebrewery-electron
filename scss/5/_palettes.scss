@@ -32,7 +32,7 @@ $teal: (
 );
 
 .five {
-  &.phb {
+  .phb {
     background-color: map_get($phb, bg);
     background-image: url('images/bg-phb.jpg');
 

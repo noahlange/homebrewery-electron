@@ -1,5 +1,8 @@
 # Homebrewery Electron
-[stolksdorf's](https://github.com/stolksdorf) Homebrewery app, on your desktop, with some twists.
+[stolksdorf's](https://github.com/stolksdorf) Homebrewery app, on your desktop,
+with some twists.
+
+![Homebrewery Desktop](https://i.imgur.com/QN4I6QK.png)
 
 ```
 git clone https://github.com/noahlange/homebrewery-electron.git
@@ -10,7 +13,11 @@ yarn start
 ```
 
 ## Fonts
-Fonts, of course, are a perennially sticky issue. Most of them have free alternatives available. Most of those will have restrictions on their commercial use — I erred to the side of caution when indicating their availability for free commercial use. It's better to be safe than sorry and pretend that ??? is a no.
+Fonts, of course, are a perennially sticky issue. Most of them have free
+alternatives available. Most of those will have restrictions on their commercial
+use — I erred to the side of caution when indicating their availability for
+free commercial use. It's better to be safe than sorry and pretend that ??? is
+a no.
 
 | Font                 | Role         | Edition  | Alternatives                                                           | Personal/Commercial Use |
 |:---------------------|:------------:|:--------:|:-----------------------------------------------------------------------|------------------------:|

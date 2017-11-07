@@ -260,24 +260,24 @@ table {
 @font-face {
   font-family: Solbera;
   src: url("fonts/solbera.otf"); }
-.five.phb {
+.five .phb {
   background-color: #eee5ce;
   background-image: url("images/bg-phb.jpg"); }
-  .five.phb a {
+  .five .phb a {
     color: #9c2b1b; }
-  .five.phb h1, .five.phb h2, .five.phb h3, .five.phb h4 {
+  .five .phb h1, .five .phb h2, .five .phb h3, .five .phb h4 {
     color: #58180d; }
-  .five.phb h3 {
+  .five .phb h3 {
     border-bottom: 2px solid #c9ad6a; }
-  .five.phb tbody tr:nth-child(odd) td {
+  .five .phb tbody tr:nth-child(odd) td {
     background-color: #dae5c1; }
-  .five.phb .block-note, .five.phb .block-descriptive {
+  .five .phb .block-note, .five .phb .block-descriptive {
     background-color: #dae5c1; }
-  .five.phb .block-stats, .five.phb .block-stats-wide {
+  .five .phb .block-stats, .five .phb .block-stats-wide {
     background-color: #fdf1dc; }
-  .five.phb .page-number, .five.phb .footnote {
+  .five .phb .page-number, .five .phb .footnote {
     color: #c9ad6a; }
-  .five.phb:after {
+  .five .phb:after {
     background-image: url("images/border-phb.png"); }
 .five.pink .phb {
   background-color: #e1e1e1;
@@ -736,6 +736,6 @@ body {
 
 .preview {
   overflow-x: hidden;
-  flex: 0 1 calc(8.5in + 32px); }
+  flex: 0 1 8.5in; }
 
 /*# sourceMappingURL=app.css.map */
