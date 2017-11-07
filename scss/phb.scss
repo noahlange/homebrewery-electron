@@ -50,7 +50,7 @@ body {
   padding-top: 0.65in;
   padding-bottom: 0.65in;
   font-family: BookInsanity;
-  font-size: 8.25pt;
+  font-size: 13px;
   text-rendering: optimizeLegibility;
   page-break-before: always;
   page-break-after: always;
@@ -59,7 +59,7 @@ body {
   // *****************************/
   p {
     padding-bottom: 0.8em;
-    line-height: 1.3em;
+    line-height: 1.25em;
     & + p {
       margin-top: -0.8em;
     }
@@ -318,10 +318,6 @@ body {
   //*****************************
   // *          EXTRAS
   // *****************************/
-  hr {
-    visibility: hidden;
-    margin: 0px;
-  }
   //Modified unorder list, used in spells
   hr + ul {
     margin-bottom: 0.5em;
@@ -330,8 +326,7 @@ body {
     list-style-type: none;
   }
   //Column Break
-  pre,
-  code {
+  .col-break {
     visibility: hidden;
     -webkit-column-break-after: always;
     break-after: always;
@@ -403,6 +398,8 @@ body {
 
 .phb .block-class,
 .phb .block-class-wide {
+  break-before: avoid-column;
+  -webkit-column-break-inside: avoid;
   margin-top: 25px;
   margin-bottom: 40px;
   border-collapse: separate;

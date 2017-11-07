@@ -11,12 +11,11 @@ yarn start
 ```
 
 ## Outstanding Issues
-- clean up UI
+- clean up UX
 - smart page rendering (for larger documents)
 - text snippets
 
-## Configuring
-- specify preferred codemirror theme in index.html
+### Configuring
 - specify preferred editor font in styles.css
 
 ## Caveats
@@ -27,7 +26,7 @@ yarn start
 ## Syntax
 Syntax is slightly different. Instead of being determined with a combinations of
 blockquotes, line rules and other things, everything that isn't plain text or a
-simple table is enclosed in triple backticks - like a code block.
+one-column table is enclosed in triple backticks - like a code block.
 
 However, instead of a language, each block is given a name that corresponds to
 some particular kind of styling.

@@ -1,5 +1,5 @@
 @media screen {
-  #preview {
+  .preview {
     height: 100vh;
     overflow-y: scroll;
     margin: 0;
@@ -52,7 +52,4 @@
 }
 .preview {
   flex: 0 1 8.5in;
-}
-.phb {
-  overflow: initial !important;
 }

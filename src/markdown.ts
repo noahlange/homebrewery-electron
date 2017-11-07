@@ -6,6 +6,7 @@ renderer.code = (code, language) => {
 }
 
 export default function render(text: string) {
+  text = text.replace('\\col', '<div class="col-break"></div>');
   return Markdown(text, {
     renderer,
     tables: true,

@@ -47,7 +47,7 @@ $teal: (
     border-bottom: 2px solid map_get($phb, hborder);
   }
 
-  tbody tr td:nth-child(odd) {
+  tbody tr:nth-child(odd) td {
     background-color: map_get($phb, note);
   }
   .block-note, .block-descriptive {
@@ -67,7 +67,7 @@ $teal: (
 .pink .phb {
   background-color: map_get($grey, bg);
   background-image: url('images/bg-dmg.jpg');
-  tbody tr td:nth-child(odd) {
+  tbody tr:nth-child(odd) td {
     background-color: map_get($pink, note);
   }
   .block-note, .block-descriptive {
@@ -84,7 +84,7 @@ $teal: (
 .teal .phb {
   background-color: map_get($grey, bg);
   background-image: url('images/bg-dmg.jpg');
-  tbody tr td:nth-child(odd) {
+  tbody tr:nth-child(odd) td {
     background-color: map_get($teal, note);
   }
   .block-note, .block-descriptive {
@@ -101,7 +101,7 @@ $teal: (
 .grey .phb {
   background-color: map_get($grey, bg);
   background-image: url('images/bg-dmg.jpg');
-  tbody tr td:nth-child(odd) {
+  tbody tr:nth-child(odd) td {
     background-color: map_get($grey, note);
   }
   .block-note, .block-descriptive {
@@ -118,7 +118,7 @@ $teal: (
 .orange .phb {
   background-color: map_get($grey, bg);
   background-image: url('images/bg-dmg.jpg');
-  tbody tr td:nth-child(odd) {
+  tbody tr:nth-child(odd) td {
     background-color: map_get($orange, note);
   }
   .block-note, .block-descriptive {

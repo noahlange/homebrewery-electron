@@ -59,6 +59,7 @@ const template = [
           } else {
             const file = dialog.showSaveDialog();
             if (file) {
+              current = file;
               mainWindow.webContents.send('save', file);
             }
           }
