@@ -15,7 +15,8 @@ class App extends React.Component<any, any> {
     value: text,
     initial: text,
     editorTheme: store.get('theme.editor', 'railscasts'),
-    previewTheme: store.get('theme.preview', 'green')
+    previewTheme: store.get('theme.preview', 'green'),
+    editionTheme: store.get('theme.edition', 'five')
   };
 
   public updateTheme() {
@@ -41,6 +42,9 @@ class App extends React.Component<any, any> {
     ipcRenderer.on('theme.editor', (e, editorTheme) => {
       this.setState({ editorTheme }, () => this.updateTheme());
     });
+    ipcRenderer.on('theme.edition', (e, editionTheme) => {
+      this.setState({ editionTheme });
+    });
   }
 
   public onChange = (editor, metadata, value) => {
@@ -57,7 +61,7 @@ class App extends React.Component<any, any> {
             theme={this.state.editorTheme}
           />
         </div>
-        <div className={`preview ${this.state.previewTheme}`}>
+        <div className={`preview ${ this.state.editionTheme } ${this.state.previewTheme}`}>
           <Preview value={this.state.value} />
         </div>
       </div>

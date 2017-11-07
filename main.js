@@ -17,6 +17,7 @@ let mainWindow;
 let current;
 
 let previewTheme = store.get('theme.preview');
+let editionTheme = store.get('theme.edition');
 let editorTheme = store.get('theme.editor');
 
 const template = [
@@ -131,6 +132,29 @@ const template = [
     label: 'Themes',
     submenu: [
       {
+        label: 'Edition',
+        submenu: [
+          {
+            label: '3.5e',
+            checked: editionTheme === 'three-five',
+            type: 'radio',
+            click: () => store.set('theme.edition', 'three-five')
+          },
+          {
+            label: '4e',
+            checked: editionTheme === 'four',
+            type: 'radio',
+            click: () => store.set('theme.edition', 'four')
+          },
+          {
+            label: '5e',
+            checked: editionTheme === 'five',
+            type: 'radio',
+            click: () => store.set('theme.edition', 'five')
+          }
+        ]
+      },
+      {
         label: 'Editor',
         submenu: themes.map(t => {
           const sansCSS = path.basename(t, '.css');
@@ -216,6 +240,10 @@ function createWindow() {
 
   store.onDidChange('theme.editor', newValue => {
     mainWindow.webContents.send('theme.editor', newValue);
+  });
+
+  store.onDidChange('theme.edition', newValue => {
+    mainWindow.webContents.send('theme.edition', newValue);
   });
 
   // Open the DevTools.
