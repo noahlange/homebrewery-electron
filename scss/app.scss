@@ -1,3 +1,15 @@
+@import 'reset.scss';
+@import '5/phb.scss';
+@import '3.5/phb.scss';
+
+//Column Break
+.col-break {
+  visibility: hidden;
+  -webkit-column-break-after: always;
+  break-after: always;
+  -moz-column-break-after: always;
+}
+
 @media screen {
   .preview {
     height: 100vh;
@@ -51,5 +63,6 @@
   flex: 3 0 auto;
 }
 .preview {
-  flex: 0 1 8.5in;
+  overflow-x: hidden;
+  flex: 0 1 calc(8.5in + 32px);
 }

@@ -1,0 +1,135 @@
+// Players Handbook
+$phb: (
+  bg: #eee5ce,
+  note: #dae5c1,
+  footnote: #c9ad6a,
+  hborder: #c9ad6a,
+  htext: #58180d,
+  hr: #9c2b1b,
+  stats: #fdf1dc,
+);
+
+// Dungeon Master's Guide, Pt.4
+$grey: (
+  bg: #e1e1e1,
+  note: #cfd6d6,
+  footnote: #b3b3b3
+);
+
+// Dungeon Master's Guide, Pt. 1
+$pink: (
+  note: #e0d6e0,
+);
+
+// Dungeon Master's Guide, Pt. 2
+$orange: (
+  note: #e5cbc0,
+);
+
+// Dungeon Master's Guide, Pt. 3
+$teal: (
+  note: #ccdddd,
+);
+
+.five {
+  .phb {
+    background-color: map_get($phb, bg);
+    background-image: url('images/bg-phb.jpg');
+
+    a {
+      color: map_get($phb, hr);
+    }
+
+    h1, h2, h3, h4 {
+      color: map_get($phb, htext);
+    }
+
+    h3 {
+      border-bottom: 2px solid map_get($phb, hborder);
+    }
+
+    tbody tr:nth-child(odd) td {
+      background-color: map_get($phb, note);
+    }
+    .block-note, .block-descriptive {
+      background-color: map_get($phb, note);
+    }
+    .block-stats, .block-stats-wide {
+      background-color: map_get($phb, stats);
+    }
+    .page-number, .footnote {
+      color: map_get($phb, footnote);
+    }
+    &:after {
+      background-image: url('images/border-phb.png');
+    }
+  }
+
+  .pink .phb {
+    background-color: map_get($grey, bg);
+    background-image: url('images/bg-dmg.jpg');
+    tbody tr:nth-child(odd) td {
+      background-color: map_get($pink, note);
+    }
+    .block-note, .block-descriptive {
+      background-color: map_get($pink, note);
+    }
+    .page-number, .footnote {
+      color: map_get($grey, footnote);
+    }
+    &:after {
+      background-image: url('images/border-dmg.png');
+    }
+  }
+
+  .teal .phb {
+    background-color: map_get($grey, bg);
+    background-image: url('images/bg-dmg.jpg');
+    tbody tr:nth-child(odd) td {
+      background-color: map_get($teal, note);
+    }
+    .block-note, .block-descriptive {
+      background-color: map_get($teal, note);
+    }
+    .page-number, .footnote {
+      color: map_get($grey, footnote);
+    }
+    &:after {
+      background-image: url('images/border-dmg.png');
+    }
+  }
+
+  .grey .phb {
+    background-color: map_get($grey, bg);
+    background-image: url('images/bg-dmg.jpg');
+    tbody tr:nth-child(odd) td {
+      background-color: map_get($grey, note);
+    }
+    .block-note, .block-descriptive {
+      background-color: map_get($grey, note);
+    }
+    .page-number, .footnote {
+      color: map_get($grey, footnote);
+    }
+    &:after {
+      background-image: url('images/border-dmg.png');
+    }
+  }
+
+  .orange .phb {
+    background-color: map_get($grey, bg);
+    background-image: url('images/bg-dmg.jpg');
+    tbody tr:nth-child(odd) td {
+      background-color: map_get($orange, note);
+    }
+    .block-note, .block-descriptive {
+      background-color: map_get($orange, note);
+    }
+    .page-number, .footnote {
+      color: map_get($grey, footnote);
+    }
+    &:after {
+      background-image: url('images/border-dmg.png');
+    }
+  }
+}

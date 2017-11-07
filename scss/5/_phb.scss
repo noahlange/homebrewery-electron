@@ -1,0 +1,466 @@
+@import '../reset.scss';
+@import 'fonts.scss';
+@import 'palettes.scss';
+
+body {
+  counter-reset: phb-page-numbers;
+}
+* {
+  -webkit-print-color-adjust: exact;
+}
+
+@mixin sans-serif() {
+  font-family: ScalySans;
+  em {
+    font-family: ScalySans;
+    font-style: italic;
+  }
+  strong {
+    font-family: ScalySans;
+    font-weight: 800;
+    letter-spacing: -0.02em;
+  }
+}
+
+@mixin use-columns($multiplier : 1) {
+  column-count: 2;
+  column-fill: auto;
+  column-gap: 0.425in;
+  column-width: 8cm * $multiplier;
+}
+
+.five {
+
+  .phb:nth-child(even) {
+    padding-left: 0.85in;
+    padding-right: 0.65in;
+  }
+
+  .phb:nth-child(odd) {
+    padding-right: 0.85in;
+    padding-left: 0.65in;
+  }
+
+  .phb {
+    @include use-columns(1);
+    counter-increment: phb-page-numbers;
+    position: relative;
+    z-index: 15;
+    box-sizing: border-box;
+    overflow: hidden;
+    height: 11in;
+    width: 8.5in;
+    padding-top: 0.65in;
+    padding-bottom: 0.65in;
+    font-family: BookInsanity;
+    font-size: 13px;
+    text-rendering: optimizeLegibility;
+    page-break-before: always;
+    page-break-after: always;
+    //*****************************
+    // *            BASE
+    // *****************************/
+    p {
+      padding-bottom: 0.8em;
+      line-height: 1.25em;
+      & + p {
+        margin-top: -0.8em;
+      }
+    }
+    ul {
+      margin-bottom: 0.8em;
+      padding-left: 1.4em;
+      line-height: 1.3em;
+      list-style-position: outside;
+      list-style-type: disc;
+    }
+    ol {
+      margin-bottom: 0.8em;
+      padding-left: 1.4em;
+      line-height: 1.3em;
+      list-style-position: outside;
+      list-style-type: decimal;
+    }
+    //Indents after p or lists
+    p + p,
+    ul + p,
+    ol + p {
+      text-indent: 1em;
+    }
+    img {
+      z-index: -1;
+    }
+    strong {
+      font-weight: bold;
+      letter-spacing: 0.03em;
+    }
+    em {
+      font-style: italic;
+    }
+    sup {
+      vertical-align: super;
+      font-size: smaller;
+      line-height: 0;
+    }
+    sub {
+      vertical-align: sub;
+      font-size: smaller;
+      line-height: 0;
+    }
+    //*****************************
+    // *           HEADERS
+    // *****************************/
+    h1,
+    h2,
+    h3,
+    h4 {
+      margin-top: 0.2em;
+      margin-bottom: 0.25em;
+      font-family: MrJeeves;
+      font-weight: 800;
+    }
+    h1 {
+      column-span: all;
+      font-size: 0.987cm;
+      -webkit-column-span: all;
+      -moz-column-span: all;
+      & + p {
+        overflow: initial;
+        margin-top: 0.15em;
+      }
+      & + p::first-letter {
+        float: left;
+        font-family: Solbera;
+        font-size: 10em;
+        color: #222;
+        line-height: 0.8em;
+        letter-spacing: 0.075em;
+      }
+    }
+    h2 {
+      font-size: 0.705cm;
+    }
+    h3 {
+      font-size: 0.529cm;
+    }
+    h4 {
+      margin-bottom: 0em;
+      font-size: 0.458cm;
+    }
+    h5 {
+      margin-top: 0.2em;
+      font-family: ScalySansSC;
+      font-size: 0.423cm;
+      font-weight: 900;
+    }
+    //*****************************
+    // *          TABLE
+    // *****************************/
+    .block-table-wide {
+      column-span: all;
+    }
+    table,
+    .block-table,
+    .block-table-wide {
+      @include sans-serif();
+
+      width: 100%;
+      margin-bottom: 1em;
+      font-size: 10pt;
+      thead {
+        font-weight: 800;
+        th {
+          vertical-align: bottom;
+          padding-bottom: 0.3em;
+          padding-right: 0.1em;
+          padding-left: 0.1em;
+        }
+      }
+      tbody {
+        tr {
+          td {
+            padding: 0.3em 0.1em;
+          }
+        }
+      }
+    }
+    //*****************************
+    // *            NOTE
+    // *****************************/
+    .block-note {
+      @include sans-serif();
+      box-sizing: border-box;
+      margin: 1em 0 2em 0;
+      border-style: solid;
+      border-width: 11px;
+      border-image: url('images/block-note.png') 11;
+      box-shadow: 1px 4px 14px #888;
+      border-image-outset: 9px 0px;
+      p, ul {
+        font-size: 0.352cm;
+        line-height: 1.1em;
+      }
+      p:last-child {
+        padding-bottom: 0;
+      }
+    }
+    //If a note starts a column, give it space at the top to render border
+    pre + blockquote,
+    h2 + blockquote,
+    h3 + blockquote,
+    h4 + blockquote,
+    h5 + blockquote {
+      margin-top: 13px;
+    }
+    //*****************************
+    // *    MONSTER STAT BLOCK
+    // *****************************/
+    .block-stats-wide {
+      column-span: all;
+      column-count: 2;
+      column-fill: auto;
+      column-gap: 1cm;
+      column-width: 8cm * 0.96;
+    }
+    .block-stats, .block-stats-wide {
+      position: relative;
+      border-style: solid;
+      border-image: url('images/block-monster.png') 10;
+      border-width: 10px;
+      h2 {
+        margin-bottom: 0px;
+        & + p {
+          padding-bottom: 0px;
+        }
+      }
+      h3 {
+        font-family: ScalySans;
+        font-weight: 400;
+      }
+      ul {
+        @include sans-serif();
+        padding-left: 1em;
+        font-size: 0.352cm;
+      }
+      // Monster Ability table
+      hr + table {
+        margin: 0;
+        column-span: 1;
+        background-color: transparent;
+        border-style: none;
+        border-image: none;
+        -webkit-column-span: 1;
+        tbody {
+          tr:nth-child(odd),
+          tr:nth-child(even) {
+            background-color: transparent;
+          }
+        }
+      }
+      p + p {
+        margin-top: 0em;
+        padding-bottom: 0.5em;
+        text-indent: 0em;
+      }
+      //Triangle dividers
+      hr {
+        visibility: visible;
+        height: 6px;
+        margin: 4px 0px;
+        background-image: url('images/hr.png');
+        background-size: 100% 100%;
+        border: none;
+      }
+    }
+
+    //*****************************
+    // *           FOOTER
+    // *****************************/
+    &:after {
+      content: '';
+      position: absolute;
+      bottom: 0px;
+      left: 0px;
+      z-index: 100;
+      height: 50px;
+      width: 100%;
+      background-size: cover;
+    }
+    &:nth-child(even) {
+      &:after {
+        transform: scaleX(-1);
+      }
+      .page-number {
+        left: 2px;
+      }
+      .footnote {
+        left: 80px;
+        text-align: left;
+      }
+    }
+    .page-number {
+      position: absolute;
+      right: 2px;
+      bottom: 22px;
+      width: 50px;
+      font-size: 0.9em;
+      text-align: center;
+      &.auto::after {
+        content: counter(phb-page-numbers);
+      }
+    }
+    .footnote {
+      position: absolute;
+      right: 80px;
+      bottom: 32px;
+      z-index: 150;
+      width: 200px;
+      font-size: 0.8em;
+      text-align: right;
+    }
+    //*****************************
+    // *          EXTRAS
+    // *****************************/
+    //Modified unorder list, used in spells
+    hr + ul {
+      margin-bottom: 0.5em;
+      padding-left: 1em;
+      text-indent: -1em;
+      list-style-type: none;
+    }
+    //Avoid breaking up
+    p,
+    blockquote,
+    table {
+      z-index: 15;
+      -webkit-column-break-inside: avoid;
+      column-break-inside: avoid;
+      overflow: hidden; /* Firefox fix */
+    }
+    //Better spacing for spell blocks
+    h4 + p + hr + ul {
+      margin-top: -0.5em;
+    }
+    //Text indent right after table
+    table + p {
+      text-indent: 1em;
+    }
+    // Nested lists
+    ul ul,
+    ol ol,
+    ul ol,
+    ol ul {
+      margin-bottom: 0px;
+      margin-left: 1.5em;
+    }
+    li {
+      -webkit-column-break-inside: avoid;
+      column-break-inside: avoid;
+    }
+  }
+  //*****************************
+  // *         SPELL LIST
+  // *****************************/
+  .phb .block-spells {
+    @include sans-serif();
+    column-count: 4;
+    column-span: all;
+    -webkit-column-span: all;
+    -moz-column-span: all;
+    ul + h5 {
+      margin-top: 15px;
+    }
+    p,
+    ul {
+      font-size: 0.352cm;
+      line-height: 1.3em;
+    }
+    ul {
+      margin-bottom: 0.5em;
+      padding-left: 1em;
+      text-indent: -1em;
+      list-style-type: none;
+      -webkit-column-break-inside: auto;
+      column-break-inside: auto;
+    }
+  }
+
+  //*****************************
+  // *       CLASS TABLE
+  // *****************************/
+  .phb .block-class-wide {
+    column-span: all;
+  }
+
+  .phb .block-class,
+  .phb .block-class-wide {
+    break-before: avoid-column;
+    -webkit-column-break-inside: avoid;
+    margin-top: 25px;
+    margin-bottom: 40px;
+    border-collapse: separate;
+    background-color: white;
+    border: initial;
+    border-style: solid;
+    border-image-source: url('images/block-class.png');
+    border-image-outset: 25px 17px;
+    border-image-repeat: round;
+    border-image-slice: 150 200 150 200;
+
+    border-image-width: 47px;
+    h5 {
+      margin-bottom: 10px;
+    }
+  }
+  //*****************************
+  // *       CLASS TABLE
+  // *****************************/
+  .phb .block-descriptive {
+    display: block-inline;
+    margin-bottom: 1em;
+    font-family: ScalySans;
+    border-style: solid;
+    border-width: 7px;
+    border-image: url('images/block-descriptive.png') 12 round;
+    border-image-outset: 4px;
+    p {
+      display: block;
+      padding-bottom: 0px;
+      line-height: 1.5em;
+    }
+    p + p {
+      padding-top: 0.8em;
+    }
+    em {
+      font-family: ScalySans;
+      font-style: italic;
+    }
+    strong {
+      font-family: ScalySans;
+      font-weight: 800;
+      letter-spacing: -0.02em;
+    }
+  }
+  .phb pre + .block-descriptive {
+    margin-top: 8px;
+  }
+
+  .phb .block-toc {
+    -webkit-column-break-inside: avoid;
+    column-break-inside: avoid;
+    a {
+      color: black;
+      text-decoration: none;
+      &:hover {
+        text-decoration: underline;
+      }
+    }
+    ul {
+      padding-left: 0;
+      list-style-type: none;
+    }
+    & > ul > li {
+      margin-bottom: 10px;
+    }
+  }
+}
