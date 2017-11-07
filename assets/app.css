@@ -37,7 +37,6 @@ table {
     height: 100%;
     top: 0;
     left: 0;
-    background-image: url("images/bg-35.png");
     background-size: contain;
     background-repeat: no-repeat;
     transform: scaleX(-1); }
@@ -51,7 +50,6 @@ table {
     height: 100%;
     top: 0;
     left: 0;
-    background-image: url("images/bg-35.png");
     background-size: contain;
     background-repeat: no-repeat; }
 .three-five .block-sidebar {
@@ -65,10 +63,10 @@ table {
 .three-five .phb {
   position: relative;
   box-sizing: border-box;
-  font-family: Berylium;
+  font-family: "Berylium";
   background-color: #eee;
-  width: 8in;
-  height: 10.5in;
+  width: 8.5in;
+  height: 11in;
   font-size: 10px;
   padding-top: 0.67in;
   padding-bottom: 0.67in;
@@ -262,68 +260,68 @@ table {
 @font-face {
   font-family: Solbera;
   src: url("fonts/solbera.otf"); }
-.five .phb {
+.five.phb {
   background-color: #eee5ce;
   background-image: url("images/bg-phb.jpg"); }
-  .five .phb a {
+  .five.phb a {
     color: #9c2b1b; }
-  .five .phb h1, .five .phb h2, .five .phb h3, .five .phb h4 {
+  .five.phb h1, .five.phb h2, .five.phb h3, .five.phb h4 {
     color: #58180d; }
-  .five .phb h3 {
+  .five.phb h3 {
     border-bottom: 2px solid #c9ad6a; }
-  .five .phb tbody tr:nth-child(odd) td {
+  .five.phb tbody tr:nth-child(odd) td {
     background-color: #dae5c1; }
-  .five .phb .block-note, .five .phb .block-descriptive {
+  .five.phb .block-note, .five.phb .block-descriptive {
     background-color: #dae5c1; }
-  .five .phb .block-stats, .five .phb .block-stats-wide {
+  .five.phb .block-stats, .five.phb .block-stats-wide {
     background-color: #fdf1dc; }
-  .five .phb .page-number, .five .phb .footnote {
+  .five.phb .page-number, .five.phb .footnote {
     color: #c9ad6a; }
-  .five .phb:after {
+  .five.phb:after {
     background-image: url("images/border-phb.png"); }
-.five .pink .phb {
+.five.pink .phb {
   background-color: #e1e1e1;
   background-image: url("images/bg-dmg.jpg"); }
-  .five .pink .phb tbody tr:nth-child(odd) td {
+  .five.pink .phb tbody tr:nth-child(odd) td {
     background-color: #e0d6e0; }
-  .five .pink .phb .block-note, .five .pink .phb .block-descriptive {
+  .five.pink .phb .block-note, .five.pink .phb .block-descriptive {
     background-color: #e0d6e0; }
-  .five .pink .phb .page-number, .five .pink .phb .footnote {
+  .five.pink .phb .page-number, .five.pink .phb .footnote {
     color: #b3b3b3; }
-  .five .pink .phb:after {
+  .five.pink .phb:after {
     background-image: url("images/border-dmg.png"); }
-.five .teal .phb {
+.five.teal .phb {
   background-color: #e1e1e1;
   background-image: url("images/bg-dmg.jpg"); }
-  .five .teal .phb tbody tr:nth-child(odd) td {
+  .five.teal .phb tbody tr:nth-child(odd) td {
     background-color: #ccdddd; }
-  .five .teal .phb .block-note, .five .teal .phb .block-descriptive {
+  .five.teal .phb .block-note, .five.teal .phb .block-descriptive {
     background-color: #ccdddd; }
-  .five .teal .phb .page-number, .five .teal .phb .footnote {
+  .five.teal .phb .page-number, .five.teal .phb .footnote {
     color: #b3b3b3; }
-  .five .teal .phb:after {
+  .five.teal .phb:after {
     background-image: url("images/border-dmg.png"); }
-.five .grey .phb {
+.five.grey .phb {
   background-color: #e1e1e1;
   background-image: url("images/bg-dmg.jpg"); }
-  .five .grey .phb tbody tr:nth-child(odd) td {
+  .five.grey .phb tbody tr:nth-child(odd) td {
     background-color: #cfd6d6; }
-  .five .grey .phb .block-note, .five .grey .phb .block-descriptive {
+  .five.grey .phb .block-note, .five.grey .phb .block-descriptive {
     background-color: #cfd6d6; }
-  .five .grey .phb .page-number, .five .grey .phb .footnote {
+  .five.grey .phb .page-number, .five.grey .phb .footnote {
     color: #b3b3b3; }
-  .five .grey .phb:after {
+  .five.grey .phb:after {
     background-image: url("images/border-dmg.png"); }
-.five .orange .phb {
+.five.orange .phb {
   background-color: #e1e1e1;
   background-image: url("images/bg-dmg.jpg"); }
-  .five .orange .phb tbody tr:nth-child(odd) td {
+  .five.orange .phb tbody tr:nth-child(odd) td {
     background-color: #e5cbc0; }
-  .five .orange .phb .block-note, .five .orange .phb .block-descriptive {
+  .five.orange .phb .block-note, .five.orange .phb .block-descriptive {
     background-color: #e5cbc0; }
-  .five .orange .phb .page-number, .five .orange .phb .footnote {
+  .five.orange .phb .page-number, .five.orange .phb .footnote {
     color: #b3b3b3; }
-  .five .orange .phb:after {
+  .five.orange .phb:after {
     background-image: url("images/border-dmg.png"); }
 
 body {

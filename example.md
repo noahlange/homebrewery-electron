@@ -2,14 +2,9 @@
 Welcome traveler from an antique land. Please sit and tell us of what you have seen. The unheard of monsters, who slither and bite. Tell us of the wondrous items and and artifacts you have found, their mysteries yet to be unlocked. Of the vexing vocations and surprising skills you have seen. Please sit and tell us of what you have seen. The unheard of monsters, who slither and bite. Tell us of the wondrous items and and artifacts you have found, their mysteries yet to be unlocked. Of the vexing vocations and surprising skills you have seen.
 
 ### Homebrew D&D made easy
-The Homebrewery makes the creation and sharing of authentic looking Fifth-Edition homebrews easy. It uses [Markdown](https://help.github.com/articles/markdown-basics/) with [Solbera's D&D fonts](https://github.com/jonathonf/solbera-dnd-fonts) and a little CSS magic to make your brews come to life.
+The Homebrewery makes the creation and sharing of authentic looking D&D homebrews easy. It uses [Markdown](https://help.github.com/articles/markdown-basics/) and a little CSS magic to make your brews come to life.
 
 **Try it! **Simply edit the text on the left and watch it *update live* on the right.
-
-### Editing and Sharing
-When you create your own homebrew you will be given a *edit url* and a *share url*.  Any changes you make will be automatically saved to the database within a few seconds. Anyone with the edit url will be able to make edits to your homebrew. So be careful about who you share it with.
-
-Anyone with the *share url* will be able to access a read-only version of your homebrew.
 
 ```note
 ##### PDF Exporting
@@ -24,9 +19,6 @@ After clicking the "Print" item in the navbar a new page will open and a print d
 
 If you want to save ink or have a monochrome printer, add the **Ink Friendly** snippet to your brew before you print.
 ```
-
-## New Things All The Time!
-What's new in the latest update? Check out the full changelog [here](/changelog)
 
 ### Bugs, Issues, Suggestions?
 Have an idea of how to make The Homebrewery better? Or did you find something that wasn't quite right? Head [here](https://github.com/stolksdorf/homebrewery/issues/new) and let me know!.
