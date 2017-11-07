@@ -12,6 +12,16 @@ yarn build
 yarn start
 ```
 
+If you're using NPM, the installation process is nearly identical.
+
+```
+git clone https://github.com/noahlange/homebrewery-electron.git
+cd homebrewery-electron
+npm install
+npm run build
+npm run start
+```
+
 ## Fonts
 Fonts, of course, are a perennially sticky issue. Most of them have free
 alternatives available. Most of those will have restrictions on their commercial
