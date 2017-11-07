@@ -1,6 +1,5 @@
 # Homebrewery Electron
-[stolksdorf's](https://github.com/stolksdorf) Homebrewery app, on your desktop,
-with some twists.
+[stolksdorf's](https://github.com/stolksdorf) Homebrewery app, on your desktop, with some twists.
 
 ```
 git clone https://github.com/noahlange/homebrewery-electron.git

@@ -1,5 +1,6 @@
 $fonts: (
-  header: 'Optima'
+  header: 'Optima',
+  body: 'Berylium'
 );
 
 $colors: (
@@ -24,7 +25,6 @@ $colors: (
       height: 100%;
       top: 0;
       left: 0;
-      background-image: url('images/bg-35.png');
       background-size: contain;
       background-repeat: no-repeat;
       transform: scaleX(-1);
@@ -42,7 +42,6 @@ $colors: (
       height: 100%;
       top: 0;
       left: 0;
-      background-image: url('images/bg-35.png');
       background-size: contain;
       background-repeat: no-repeat;
     }
@@ -63,10 +62,10 @@ $colors: (
   .phb {
     position: relative;
     box-sizing: border-box;
-    font-family: Berylium;
+    font-family: map_get($fonts, 'body');
     background-color: #eee;
-    width: 8in;
-    height: 10.5in;
+    width: 8.5in;
+    height: 11in;
     font-size: 10px;
     padding-top: 0.67in;
     padding-bottom: 0.67in;

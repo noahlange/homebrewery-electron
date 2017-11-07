@@ -32,7 +32,7 @@ $teal: (
 );
 
 .five {
-  .phb {
+  &.phb {
     background-color: map_get($phb, bg);
     background-image: url('images/bg-phb.jpg');
 
@@ -65,7 +65,7 @@ $teal: (
     }
   }
 
-  .pink .phb {
+  &.pink .phb {
     background-color: map_get($grey, bg);
     background-image: url('images/bg-dmg.jpg');
     tbody tr:nth-child(odd) td {
@@ -82,7 +82,7 @@ $teal: (
     }
   }
 
-  .teal .phb {
+  &.teal .phb {
     background-color: map_get($grey, bg);
     background-image: url('images/bg-dmg.jpg');
     tbody tr:nth-child(odd) td {
@@ -99,7 +99,7 @@ $teal: (
     }
   }
 
-  .grey .phb {
+  &.grey .phb {
     background-color: map_get($grey, bg);
     background-image: url('images/bg-dmg.jpg');
     tbody tr:nth-child(odd) td {
@@ -116,7 +116,7 @@ $teal: (
     }
   }
 
-  .orange .phb {
+  &.orange .phb {
     background-color: map_get($grey, bg);
     background-image: url('images/bg-dmg.jpg');
     tbody tr:nth-child(odd) td {
