@@ -3,3 +3,4 @@ lib
 node_modules
 *.map
 .sass-cache
+yarn.lock

@@ -35,7 +35,7 @@ a no.
 | Celestia Antique     | Body         | 3.5E     | [Caslon Antique](http://www.fontspace.com/alan-carr/caslon-antique)    | ???                     |
 | Scala Sans           | Sidebar/Sans | 3.5E, 5E | Scaly Sans / Alegreya Sans                                             | Yes, ??? / Yes, Yes     |
 | DnDLolthSCC          | Headings     | 4E       | [Ravenna](http://www.fontpalace.com/font-details/Ravenna/)             | ???                     |
-| Mentor               | Body         | 4E       | [Utopia](https://ctan.org/tex-archive/fonts/utopia/)                   | Yes / Yes               |
+| Mentor               | Body         | 4E       | [Utopia](https://ghostscript.com/~tor/stuff/fonts/utopia/)             | Yes / Yes               |
 | Mentor Sans          | Body         | 4E       | [Belleza](https://fonts.google.com/specimen/Belleza)                   | Yes / Yes               |
 | Modesto              | Title        | 5E       | Nodesto                                                                | Yes / ???               |
 | Mrs. Eaves           | Headings     | 5E       | Mr. Eaves                                                              | Yes / ???               |
