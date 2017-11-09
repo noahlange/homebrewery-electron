@@ -16,25 +16,31 @@ $grey: (
   footnote: #b3b3b3
 );
 
-// Dungeon Master's Guide, Pt. 1
-$pink: (
-  note: #e0d6e0,
+$red: (
+  note: #e0d6d6
 );
 
-// Dungeon Master's Guide, Pt. 2
-$orange: (
-  note: #e5cbc0,
+$blue: (
+  note: #d6dbe0
 );
 
-// Dungeon Master's Guide, Pt. 3
-$teal: (
-  note: #ccdddd,
+$green: (
+  note: #d6e0d6
+);
+
+$other: (
+  // Dungeon Master's Guide, Pt. 1
+  pink: #e0d6e0,
+  // Dungeon Master's Guide, Pt. 2
+  orange: #e5cbc0,
+  // Dungeon Master's Guide, Pt. 3
+  teal: #ccdddd,
 );
 
 .five {
-  .phb {
+  &.default .phb {
     background-color: map_get($phb, bg);
-    background-image: url('images/bg-phb.jpg');
+    background-image: url('images/5e-bg-std.jpg');
 
     a {
       color: map_get($phb, hr);
@@ -61,75 +67,59 @@ $teal: (
       color: map_get($phb, footnote);
     }
     &:after {
-      background-image: url('images/border-phb.png');
+      background-image: url('images/5e-border-std.png');
     }
   }
 
-  &.pink .phb {
+  &.red .phb {
     background-color: map_get($grey, bg);
-    background-image: url('images/bg-dmg.jpg');
+    background-image: url('images/5e-bg-grey.jpg');
     tbody tr:nth-child(odd) td {
-      background-color: map_get($pink, note);
+      background-color: map_get($red, note);
     }
     .block-note, .block-descriptive {
-      background-color: map_get($pink, note);
+      background-color: map_get($red, note);
     }
     .page-number, .footnote {
       color: map_get($grey, footnote);
     }
     &:after {
-      background-image: url('images/border-dmg.png');
+      background-image: url('images/5e-border-grey.png');
     }
   }
 
-  &.teal .phb {
+  &.green .phb {
     background-color: map_get($grey, bg);
-    background-image: url('images/bg-dmg.jpg');
+    background-image: url('images/5e-bg-grey.jpg');
     tbody tr:nth-child(odd) td {
-      background-color: map_get($teal, note);
+      background-color: map_get($green, note);
     }
     .block-note, .block-descriptive {
-      background-color: map_get($teal, note);
+      background-color: map_get($green, note);
     }
     .page-number, .footnote {
       color: map_get($grey, footnote);
     }
     &:after {
-      background-image: url('images/border-dmg.png');
+      background-image: url('images/5e-border-grey.png');
     }
   }
 
-  &.grey .phb {
+  &.blue .phb {
     background-color: map_get($grey, bg);
-    background-image: url('images/bg-dmg.jpg');
+    background-image: url('images/5e-bg-grey.jpg');
     tbody tr:nth-child(odd) td {
-      background-color: map_get($grey, note);
+      background-color: map_get($blue, note);
     }
     .block-note, .block-descriptive {
-      background-color: map_get($grey, note);
+      background-color: map_get($blue, note);
     }
     .page-number, .footnote {
       color: map_get($grey, footnote);
     }
     &:after {
-      background-image: url('images/border-dmg.png');
+      background-image: url('images/5e-border-grey.png');
     }
   }
 
-  &.orange .phb {
-    background-color: map_get($grey, bg);
-    background-image: url('images/bg-dmg.jpg');
-    tbody tr:nth-child(odd) td {
-      background-color: map_get($orange, note);
-    }
-    .block-note, .block-descriptive {
-      background-color: map_get($orange, note);
-    }
-    .page-number, .footnote {
-      color: map_get($grey, footnote);
-    }
-    &:after {
-      background-image: url('images/border-dmg.png');
-    }
-  }
 }

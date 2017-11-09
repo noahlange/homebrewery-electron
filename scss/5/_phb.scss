@@ -193,7 +193,7 @@ body {
       margin: 1em 0 2em 0;
       border-style: solid;
       border-width: 11px;
-      border-image: url('images/block-note.png') 11;
+      border-image: url('images/5e-block-note.png') 11;
       box-shadow: 1px 4px 14px #888;
       border-image-outset: 9px 0px;
       p, ul {
@@ -225,7 +225,7 @@ body {
     .block-stats, .block-stats-wide {
       position: relative;
       border-style: solid;
-      border-image: url('images/block-monster.png') 10;
+      border-image: url('images/5e-block-monster.png') 10;
       border-width: 10px;
       h2 {
         margin-bottom: 0px;
@@ -267,7 +267,7 @@ body {
         visibility: visible;
         height: 6px;
         margin: 4px 0px;
-        background-image: url('images/hr.png');
+        background-image: url('images/5e-hr.png');
         background-size: 100% 100%;
         border: none;
       }
@@ -402,7 +402,7 @@ body {
     background-color: white;
     border: initial;
     border-style: solid;
-    border-image-source: url('images/block-class.png');
+    border-image-source: url('images/5e-block-class.png');
     border-image-outset: 25px 17px;
     border-image-repeat: round;
     border-image-slice: 150 200 150 200;
@@ -421,7 +421,7 @@ body {
     font-family: ScalySans;
     border-style: solid;
     border-width: 7px;
-    border-image: url('images/block-descriptive.png') 12 round;
+    border-image: url('images/5e-block-descriptive.png') 12 round;
     border-image-outset: 4px;
     p {
       display: block;

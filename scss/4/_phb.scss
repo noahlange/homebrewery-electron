@@ -1,9 +1,9 @@
 $color-navy: rgb(29,53,76);
 $color-bg: white;
 $color-body: black;
-$font-header: serif;
-$font-serif: serif;
-$font-sans: sans-serif;
+$font-header: Ravenna;
+$font-serif: Utopia;
+$font-sans: Optima;
 
 .four {
 
@@ -19,7 +19,43 @@ $font-sans: sans-serif;
     font-style: italic;
   }
 
+
+  .phb:nth-child(odd) {
+    padding-left: 0.75in;
+    padding-right: 0.5in;
+
+    .footnote {
+      text-align: right;
+      right: 12em;
+    }
+    .page-number {
+      right: 1.5em;
+    }
+
+    &:after {
+      right: 1em;
+      transform: scaleX(-1);
+    }
+  }
+
+  .phb:nth-child(even) {
+    padding-right: 0.75in;
+    padding-left: 0.5in;
+
+    .footnote {
+      text-align: left;
+      left: 12em;
+    }
+    .page-number {
+      left: 0.5em;
+    }
+    &:after {
+      left: 0;
+    }
+  }
+
   .phb {
+    position: relative;
     box-sizing: border-box;
     background-color: $color-bg;
     color: $color-body;
@@ -32,6 +68,32 @@ $font-sans: sans-serif;
     column-gap: 0.4in;
     font-size: 10pt;
     line-height: 1.3;
+
+    &:after {
+      content: ' ';
+      position: absolute;
+      height: 8em;
+      bottom: 0;
+      width: 12em;
+      background-size: contain;
+      background-image: url('images/corner-4e.png');
+      background-repeat: no-repeat;
+    }
+    
+    .page-number {
+      z-index: 10;
+      position: absolute;
+      bottom: 2em;
+      color: white;
+      text-align: center;
+      width: 3em;
+      height: 1em;
+    }
+
+    .footnote {
+      position: absolute;
+      bottom: 3em;
+    }
   }
     
   h1, h2, h3, h4 {
@@ -43,10 +105,14 @@ $font-sans: sans-serif;
   h1 {
     font-size: 18pt;
     margin-left: -0.85in;
-    padding: 9pt 0 9pt 0.6in;
+    padding: 10pt 0 9pt 0.6in;
     margin-bottom: 12pt;
     color: white;
-    background-color: $color-navy;
+    background-image: url('images/border-4e.png');
+    column-span: all;
+    background-size: contain;
+    background-repeat: no-repeat;
+    background-position: -4em -2px;
   }
 
   h2 {
@@ -89,6 +155,7 @@ $font-sans: sans-serif;
 
   ol, ul {
     list-style-position: outside;
+    margin-top: 0.25em;
     margin-left: 1em;
   }
 
@@ -96,8 +163,14 @@ $font-sans: sans-serif;
     list-style-type: square;
   }
 
+  .block-table-wide {
+    column-span: all;
+  }
+
   table {
     width: 100%;
+    max-width: 100%;
+    table-layout: fixed;
     margin: 1em 0;
     font-size: 10pt;
     font-family: $font-sans;
@@ -120,7 +193,7 @@ $font-sans: sans-serif;
       tr {
         border-bottom: 3px solid white;
         td {
-          padding: 0.3em 0.1em;
+          padding: 0.25em 0.25em;
         }
       }
     }

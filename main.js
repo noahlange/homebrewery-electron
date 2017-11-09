@@ -134,20 +134,19 @@ const template = [
       {
         label: 'Edition',
         submenu: [
-          /*
           {
             label: '3.5e',
             checked: editionTheme === 'three-five',
             type: 'radio',
             click: () => store.set('theme.edition', 'three-five')
           },
+          /*
           {
             label: '4e',
             checked: editionTheme === 'four',
             type: 'radio',
             click: () => store.set('theme.edition', 'four')
-          },
-          */
+          },*/
           {
             label: '5e',
             checked: editionTheme === 'five',
@@ -172,6 +171,22 @@ const template = [
         label: 'Preview',
         submenu: [
           {
+            label: 'Default',
+            type: 'radio',
+            checked: previewTheme === 'default',
+            click: () => {
+              store.set('theme.preview', 'default');
+            }
+          },
+          {
+            label: 'Red',
+            type: 'radio',
+            checked: previewTheme === 'red',
+            click: () => {
+              store.set('theme.preview', 'red');
+            }
+          },
+          {
             label: 'Green',
             type: 'radio',
             checked: previewTheme === 'green',
@@ -180,31 +195,12 @@ const template = [
             }
           },
           {
-            label: 'Orange',
+            label: 'Blue',
             type: 'radio',
-            checked: previewTheme === 'orange',
+            checked: previewTheme === 'Blue',
             click: () => {
-              store.set('theme.preview', 'orange');
+              store.set('theme.preview', 'blue');
             }
-          },
-          {
-            label: 'Pink',
-            type: 'radio',
-            checked: previewTheme === 'pink',
-            click: () => {
-              store.set('theme.preview', 'pink');
-            }
-          },
-          {
-            label: 'Teal',
-            type: 'radio',
-            checked: previewTheme === 'teal',
-            click: () => store.set('theme.preview', 'teal')
-          },
-          {
-            label: 'Grey',
-            type: 'radio',
-            click: () => store.set('theme.preview', 'grey')
           }
         ]
       }

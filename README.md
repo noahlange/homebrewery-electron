@@ -32,7 +32,7 @@ a no.
 | Font                 | Role         | Edition  | Alternatives                                                           | Personal/Commercial Use |
 |:---------------------|:------------:|:--------:|:-----------------------------------------------------------------------|------------------------:|
 | Pterra               | Headings     | 3.5E     | [Pterra-dactyl](http://www.fontpalace.com/font-download/Pterra-dactyl) | ???                     |
-| Celestia Antique     | Body         | 3.5E     | [Caslon Antique](http://www.fontspace.com/alan-carr/caslon-antique)    | ???                     |
+| Celestia Antique     | Body         | 3.5E     | [Ugly Qua](https://www.fontsquirrel.com/fonts/UglyQua)                 | Yes, Yes                |
 | Scala Sans           | Sidebar/Sans | 3.5E, 5E | Scaly Sans / Alegreya Sans                                             | Yes, ??? / Yes, Yes     |
 | DnDLolthSCC          | Headings     | 4E       | [Ravenna](http://www.fontpalace.com/font-details/Ravenna/)             | ???                     |
 | Mentor               | Body         | 4E       | [Utopia](https://ghostscript.com/~tor/stuff/fonts/utopia/)             | Yes / Yes               |
