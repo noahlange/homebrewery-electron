@@ -25,12 +25,15 @@ table {
   border-collapse: collapse;
   border-spacing: 0; }
 
-.three-five.red .phb {
-  background-image: url("images/35-bg-red.jpg"); }
-.three-five.blue .phb, .three-five.default .phb {
-  background-image: url("images/35-bg-blue.jpg"); }
-.three-five.green .phb {
-  background-image: url("images/35-bg-green.jpg"); }
+.three-five.red .phb:before {
+  background-image: url("images/35-bg-red.jpg");
+  z-index: -10; }
+.three-five.blue .phb:before, .three-five.default .phb:before {
+  background-image: url("images/35-bg-blue.jpg");
+  z-index: -10; }
+.three-five.green .phb:before {
+  background-image: url("images/35-bg-green.jpg");
+  z-index: -10; }
 .three-five a {
   color: #9c2b1b; }
 .three-five strong {
@@ -46,7 +49,7 @@ table {
     transform: rotate(-90deg); }
   .three-five .phb:nth-child(even) .page-number {
     left: 0.85em; }
-  .three-five .phb:nth-child(even)::before {
+  .three-five .phb:nth-child(even):before {
     content: '';
     position: absolute;
     width: 100%;
@@ -88,7 +91,6 @@ table {
   position: relative;
   box-sizing: border-box;
   font-family: "UglyQua";
-  background-color: white;
   width: 8.5in;
   height: 11in;
   font-size: 10px;
@@ -105,7 +107,8 @@ table {
     font-family: "Pterra";
     text-align: center;
     width: 12em;
-    top: 18em; }
+    right: 1em;
+    top: 17.5em; }
   .three-five .phb .page-number {
     position: absolute;
     bottom: 3em;
@@ -819,6 +822,9 @@ body {
   -webkit-column-break-after: always;
   break-after: always;
   -moz-column-break-after: always; }
+
+code {
+  font-variant: small-caps; }
 
 @media screen {
   .preview {

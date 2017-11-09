@@ -11,6 +11,10 @@
   -moz-column-break-after: always;
 }
 
+code {
+  font-variant: small-caps;
+}
+
 @media screen {
   .preview {
     height: 100vh;

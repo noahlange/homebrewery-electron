@@ -11,7 +11,6 @@ export default function render(text: string) {
     renderer,
     tables: true,
     gfm: true,
-    breaks: true,
     smartypants: true
   });
 }
