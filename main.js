@@ -6,9 +6,6 @@ const Store = require('electron-store');
 const store = new Store();
 const app = electron.app;
 const BrowserWindow = electron.BrowserWindow;
-const themes = readdirSync(
-  path.resolve(__dirname, 'node_modules/codemirror/theme')
-);
 const url = require('url');
 
 // Keep a global reference of the window object, if you don't, the window will
@@ -18,7 +15,6 @@ let current;
 
 let previewTheme = store.get('theme.preview');
 let editionTheme = store.get('theme.edition');
-let editorTheme = store.get('theme.editor');
 
 const template = [
   {
@@ -156,18 +152,6 @@ const template = [
         ]
       },
       {
-        label: 'Editor',
-        submenu: themes.map(t => {
-          const sansCSS = path.basename(t, '.css');
-          return {
-            label: sansCSS,
-            type: 'radio',
-            checked: editorTheme === sansCSS,
-            click: () => store.set('theme.editor', sansCSS)
-          };
-        })
-      },
-      {
         label: 'Preview',
         submenu: [
           {
@@ -226,7 +210,7 @@ function createWindow() {
   // and load the index.html of the app.
   mainWindow.loadURL(
     url.format({
-      pathname: path.join(__dirname, 'index.html'),
+      pathname: path.join(__dirname, 'public/index.html'),
       protocol: 'file:',
       slashes: true
     })

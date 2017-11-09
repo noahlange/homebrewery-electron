@@ -14,22 +14,11 @@ class App extends React.Component<any, any> {
   public state = {
     value: text,
     initial: text,
-    editorTheme: store.get('theme.editor', 'railscasts'),
     previewTheme: store.get('theme.preview', 'green'),
     editionTheme: store.get('theme.edition', 'five')
   };
 
-  public updateTheme() {
-    document
-      .getElementById('theme')
-      .setAttribute(
-        'href',
-        `./node_modules/codemirror/theme/${this.state.editorTheme}.css`
-      );
-  }
-
   public componentDidMount() {
-    this.updateTheme();
     ipcRenderer.on('save', (e, file) =>
       writeFileSync(file, this.state.value, 'utf8')
     );
@@ -39,15 +28,12 @@ class App extends React.Component<any, any> {
     ipcRenderer.on('theme.preview', (e, file) =>
       this.setState({ previewTheme: file })
     );
-    ipcRenderer.on('theme.editor', (e, editorTheme) => {
-      this.setState({ editorTheme }, () => this.updateTheme());
-    });
     ipcRenderer.on('theme.edition', (e, editionTheme) => {
       this.setState({ editionTheme });
     });
   }
 
-  public onChange = (editor, metadata, value) => {
+  public onChange = (value, e) => {
     this.setState({ value });
   };
 
@@ -58,7 +44,6 @@ class App extends React.Component<any, any> {
           <Editor
             onChange={this.onChange}
             value={this.state.initial}
-            theme={this.state.editorTheme}
           />
         </div>
         <div className={`preview ${ this.state.editionTheme } ${this.state.previewTheme}`}>
