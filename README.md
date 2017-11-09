@@ -2,7 +2,7 @@
 [stolksdorf's](https://github.com/stolksdorf) Homebrewery app, on your desktop,
 with some twists.
 
-![Homebrewery Desktop](https://i.imgur.com/QN4I6QK.png)
+![Homebrewery Desktop](https://i.imgur.com/TDV6C4D.png)
 
 ```
 git clone https://github.com/noahlange/homebrewery-electron.git
