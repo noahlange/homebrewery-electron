@@ -20,7 +20,7 @@
   },
   "main": "main.js",
   "scripts": {
-    "release": "npm run build && build --publish onTag",
+    "release": "npm run build && build",
     "sass": "sass --watch scss:assets",
     "start": "electron .",
     "build": "tsc",
