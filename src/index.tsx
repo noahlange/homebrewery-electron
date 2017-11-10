@@ -14,7 +14,7 @@ class App extends React.Component<any, any> {
   public state = {
     value: text,
     initial: text,
-    previewTheme: store.get('theme.preview', 'green'),
+    previewTheme: store.get('theme.preview', 'default'),
     editionTheme: store.get('theme.edition', 'five')
   };
 

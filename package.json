@@ -20,10 +20,37 @@
   },
   "main": "main.js",
   "scripts": {
-    "dist": "electron-builder -m --x64",
+    "dist": "yarn run build && build --publish onTag",
     "sass": "sass --watch scss:assets",
-    "build": "tsc",
     "start": "electron .",
+    "build": "tsc",
     "watch": "tsc --watch"
+  },
+  "build": {
+    "appId": "com.noahlange.homebrewery",
+    "productName": "The Homebrewery",
+    "directories": {
+      "output": "dist"
+    },
+    "files": [
+      "assets",
+      "lib",
+      "node_modules",
+      "main.js",
+      "public",
+      "example.md",
+      "package.json"
+    ],
+    "mac": {
+      "target": "dmg"
+    },
+    "win": {
+      "target": "nsis"
+    },
+    "linux": {
+      "target": [
+        "AppImage"
+      ]
+    }
   }
 }

@@ -26,10 +26,9 @@ npm run start
 
 ## Fonts
 Fonts, of course, are a perennially sticky issue. Most of them have free
-alternatives available. Most of those will have restrictions on their commercial
-use — I erred to the side of caution when indicating their availability for
-free commercial use. It's better to be safe than sorry and pretend that ??? is
-a no.
+alternatives available. Most of those will have restrictions on their public
+use. It's recommended to consult the copyright holders or creators before
+publicly distributing PDFs generated with the Homebrewery.
 
 | Font                 | Role         | Edition  | Alternatives                                                           | Personal/Commercial Use |
 |:---------------------|:------------:|:--------:|:-----------------------------------------------------------------------|------------------------:|

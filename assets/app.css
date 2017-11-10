@@ -25,6 +25,101 @@ table {
   border-collapse: collapse;
   border-spacing: 0; }
 
+@font-face {
+  font-family: BookInsanity;
+  font-weight: bold;
+  src: url("fonts/bookinsanity-bold.otf"); }
+@font-face {
+  font-family: BookInsanity;
+  font-weight: bold;
+  font-style: italic;
+  src: url("fonts/bookinsanity-bold-it.otf"); }
+@font-face {
+  font-family: BookInsanity;
+  font-style: italic;
+  src: url("fonts/bookinsanity-it.otf"); }
+@font-face {
+  font-family: BookInsanity;
+  src: url("fonts/bookinsanity.otf"); }
+@font-face {
+  font-family: MrJeeves;
+  src: url("fonts/mr-jeeves-sc.otf"); }
+@font-face {
+  font-family: ScalySans;
+  src: url("fonts/scaly-sans.otf"); }
+@font-face {
+  font-family: ScalySans;
+  font-weight: bold;
+  src: url("fonts/scaly-sans-bold.otf"); }
+@font-face {
+  font-family: ScalySans;
+  font-style: italic;
+  src: url("fonts/scaly-sans-it.otf"); }
+@font-face {
+  font-family: ScalySansSC;
+  src: url("fonts/scaly-sans-sc.otf"); }
+@font-face {
+  font-family: ScalySansSC;
+  font-weight: bold;
+  src: url("fonts/scaly-sans-sc-bold.otf"); }
+@font-face {
+  font-family: ScalySansSC;
+  font-style: italic;
+  src: url("fonts/scaly-sans-sc-it.otf"); }
+@font-face {
+  font-family: Inconsolata;
+  src: url("fonts/Inconsolata.otf"); }
+@font-face {
+  font-family: Solbera;
+  src: url("fonts/solbera.otf"); }
+@font-face {
+  font-family: Ravenna;
+  src: url("fonts/ravenna.ttf"); }
+@font-face {
+  font-family: Belleza;
+  src: url("fonts/belleza.ttf"); }
+@font-face {
+  font-family: PterraDactyl;
+  src: url("fonts/pterra-dactyl.ttf"); }
+@font-face {
+  font-family: UglyQua;
+  src: url("fonts/uglyqua.ttf"); }
+@font-face {
+  font-family: UglyQua;
+  font-style: italic;
+  src: url("fonts/uglyqua-it.ttf"); }
+@font-face {
+  font-family: Utopia;
+  src: url("fonts/utopia.otf"); }
+@font-face {
+  font-family: Utopia;
+  font-style: italic;
+  src: url("fonts/utopia-it.otf"); }
+@font-face {
+  font-family: Utopia;
+  font-weight: bold;
+  src: url("fonts/utopia-bold.otf"); }
+@font-face {
+  font-family: Utopia;
+  font-weight: bold;
+  font-style: italic;
+  src: url("fonts/utopia-bold-it.otf"); }
+@font-face {
+  font-family: ZatannaMisdirection;
+  src: url("fonts/zatanna-misdirection.otf"); }
+@font-face {
+  font-family: ZatannaMisdirection;
+  font-weight: bold;
+  src: url("fonts/zatanna-misdirection-bold.otf"); }
+@font-face {
+  font-family: ZatannaMisdirection;
+  font-weight: bold;
+  font-style: italic;
+  src: url("fonts/zatanna-misdirection-bold-it.otf"); }
+@font-face {
+  font-family: ZatannaMisdirection;
+  font-style: italic;
+  src: url("fonts/zatanna-misdirection-it.otf"); }
 .three-five.red .phb:before {
   background-image: url("images/35-bg-red.jpg");
   z-index: -10; }
@@ -90,7 +185,7 @@ table {
 .three-five .phb {
   position: relative;
   box-sizing: border-box;
-  font-family: "UglyQua";
+  font-family: UglyQua;
   width: 8.5in;
   height: 11in;
   font-size: 10px;
@@ -104,7 +199,7 @@ table {
   .three-five .phb .footnote {
     font-size: 1.25em;
     position: absolute;
-    font-family: "Pterra";
+    font-family: PterraDactyl;
     text-align: center;
     width: 12em;
     right: 1em;
@@ -142,7 +237,7 @@ table {
     column-break-inside: avoid; }
 .three-five h1, .three-five h2, .three-five h3, .three-five h4, .three-five h5 {
   color: #4d7889;
-  font-family: "Pterra";
+  font-family: PterraDactyl;
   font-weight: bold;
   text-transform: uppercase; }
 .three-five h1 {
@@ -309,7 +404,7 @@ table {
   margin: 1em 0;
   background: linear-gradient(to right, #dbd9c8, white);
   padding: 1em;
-  font-family: Optima; }
+  font-family: Optima, Belleza; }
 .four p + p {
   text-indent: 1em; }
 .four ol, .four ul {
@@ -326,7 +421,7 @@ table {
   table-layout: fixed;
   margin: 1em 0;
   font-size: 10pt;
-  font-family: Optima; }
+  font-family: Optima, Belleza; }
   .four table thead {
     font-weight: bold;
     color: white; }
@@ -348,80 +443,6 @@ table {
 .four .block-encounter table thead {
   background-color: #7f1e32; }
 
-html, body, div, span, applet, object, iframe, h1, h2, h3, h4, h5, h6, p, blockquote, pre, a, abbr, acronym, address, big, cite, code, del, dfn, em, img, ins, kbd, q, s, samp, small, strike, strong, sub, sup, tt, var, b, u, i, center, dl, dt, dd, ol, ul, li, fieldset, form, label, legend, table, caption, tbody, tfoot, thead, tr, th, td, article, aside, canvas, details, embed, figure, figcaption, footer, header, hgroup, menu, nav, output, ruby, section, summary, time, mark, audio, video {
-  border: 0;
-  font-size: 100%;
-  font: inherit;
-  vertical-align: baseline;
-  margin: 0;
-  padding: 0; }
-
-article, aside, details, figcaption, figure, footer, header, hgroup, menu, nav, section {
-  display: block; }
-
-body {
-  line-height: 1; }
-
-ol, ul {
-  list-style: none; }
-
-blockquote, q {
-  quotes: none; }
-
-blockquote:before, blockquote:after, q:before, q:after {
-  content: none; }
-
-table {
-  border-collapse: collapse;
-  border-spacing: 0; }
-
-@font-face {
-  font-family: BookInsanity;
-  font-weight: bold;
-  src: url("fonts/bookinsanity-bold.otf"); }
-@font-face {
-  font-family: BookInsanity;
-  font-weight: bold;
-  font-style: italic;
-  src: url("fonts/bookinsanity-bold-it.otf"); }
-@font-face {
-  font-family: BookInsanity;
-  font-style: italic;
-  src: url("fonts/bookinsanity-it.otf"); }
-@font-face {
-  font-family: BookInsanity;
-  src: url("fonts/bookinsanity.otf"); }
-@font-face {
-  font-family: MrJeeves;
-  src: url("fonts/mr-jeeves-sc.otf"); }
-@font-face {
-  font-family: ScalySans;
-  src: url("fonts/scaly-sans.otf"); }
-@font-face {
-  font-family: ScalySans;
-  font-weight: bold;
-  src: url("fonts/scaly-sans-bold.otf"); }
-@font-face {
-  font-family: ScalySans;
-  font-style: italic;
-  src: url("fonts/scaly-sans-it.otf"); }
-@font-face {
-  font-family: ScalySansSC;
-  src: url("fonts/scaly-sans-sc.otf"); }
-@font-face {
-  font-family: ScalySansSC;
-  font-weight: bold;
-  src: url("fonts/scaly-sans-sc-bold.otf"); }
-@font-face {
-  font-family: ScalySansSC;
-  font-style: italic;
-  src: url("fonts/scaly-sans-sc-it.otf"); }
-@font-face {
-  font-family: Inconsolata;
-  src: url("fonts/Inconsolata.otf"); }
-@font-face {
-  font-family: Solbera;
-  src: url("fonts/solbera.otf"); }
 .five.default .phb {
   background-color: #eee5ce;
   background-image: url("images/5e-bg-std.jpg"); }
@@ -640,6 +661,8 @@ body {
   .five .phb h4 + blockquote,
   .five .phb h5 + blockquote {
     margin-top: 13px; }
+  .five .phb blockquote {
+    font-family: ZatannaMisdirection; }
   .five .phb .block-stats-wide {
     column-span: all;
     column-count: 2;

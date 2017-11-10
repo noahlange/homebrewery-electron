@@ -3,7 +3,6 @@ Welcome, traveler. Sit and tell us of what you have seen -- the unheard of monst
 
 ## Homebrew D&D made easy
 `The Homebrewery` makes the creation and sharing of authentic-looking D&D (3.5E, 4E and 5E) homebrews easy. It uses [Markdown](https://guides.github.com/features/mastering-markdown/) and a little CSS magic to make your brews come to life.
-a
 
 <div class="x-center y-bottom">
 <!-- newline required -->
@@ -50,7 +49,6 @@ Markdown is a lightweight markup language that is used to generate the HTML styl
 - **Images:** Images use the same format as links, but are prefixed with an exclamation point (!). Currently images must be hosted on a third-party site (imgur, etc.) or provided with an absolute filepath.
 - **Column and page breaks** are left to the author. To start a new page, use a backslash followed by the word *page*. Use a backslash followed by the word *col* to break to the next column.
 - **Fences** are block elements. Indicate sidebars, notes and tables with triple backticks, followed by the name of the block element. Close the block with three more backticks.
-
 
 <div class='page-number'>1</div>
 <div class='footnote'>PART 1 | FANCINESS</div>
