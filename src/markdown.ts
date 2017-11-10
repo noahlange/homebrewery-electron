@@ -1,16 +1,29 @@
-import * as Markdown from 'marked';
-const renderer = new Markdown.Renderer();
+import * as Markdown from 'markdown-it';
+import * as sanitize from 'sanitize-html';
+import fence from './fence';
 
-renderer.code = (code, language) => {
-  return `<div class="block block-${ language }">${ render(code) }</div>`;
-}
+const md = new Markdown({
+  html: true,
+  typographer: true,
+  xhtmlOut: true,
+  highlight(code) {
+    return md.render(code);
+  }
+}).use(fence);
 
 export default function render(text: string) {
   text = text.replace('\\col', '<div class="col-break"></div>');
-  return Markdown(text, {
-    renderer,
-    tables: true,
-    gfm: true,
-    smartypants: true
+  const html = md.render(text);
+  return sanitize(html, {
+    allowedTags: [ 'h1', 'h2', 'img', ...sanitize.defaults.allowedTags ],
+    allowedAttributes: {
+      a: ['href'],
+      div: ['class'],
+      img: [ 'src' ]
+    },
+    allowedClasses: [
+      'page-number',
+      'footnote'
+    ]
   });
 }

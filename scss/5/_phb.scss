@@ -157,6 +157,7 @@ body {
     // *          TABLE
     // *****************************/
     .block-table-wide {
+      width: 100%;
       column-span: all;
     }
     table,
@@ -221,6 +222,7 @@ body {
       column-fill: auto;
       column-gap: 1cm;
       column-width: 8cm * 0.96;
+      width: 100%;
     }
     .block-stats, .block-stats-wide {
       position: relative;
@@ -389,6 +391,7 @@ body {
   // *       CLASS TABLE
   // *****************************/
   .phb .block-class-wide {
+    width: 100%;
     column-span: all;
   }
 

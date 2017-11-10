@@ -1,15 +1,13 @@
-$color-navy: rgb(29,53,76);
-$color-bg: white;
+$color-blue: rgb(29,53,76);
+$color-red: rgb(76, 29, 29);
+$color-green: rgb(29,76,53);
+
 $color-body: black;
 $font-header: Ravenna;
 $font-serif: Utopia;
 $font-sans: Optima;
 
 .four {
-
-  a {
-    color: $color-navy;
-  }
 
   strong {
     font-weight: bold;
@@ -54,10 +52,55 @@ $font-sans: Optima;
     }
   }
 
+  &.blue .phb,
+  &.default .phb {
+    &:after {
+      background-image: url('images/4e-corner-blue.png');
+    }
+    a, h2, .block-sidebar, .block-sidebar-wide {
+      color: $color-blue;
+    }
+    table thead {
+      background-color: $color-blue;
+    }
+  }
+  &.red .phb {
+    &:after {
+      background-image: url('images/4e-corner-red.png');
+    }
+    a, h2, .block-sidebar, .block-sidebar-wide {
+      color: $color-red;
+    }
+    table thead {
+      background-color: $color-red;
+    }
+  }
+  &.green .phb {
+    &:after {
+      background-image: url('images/4e-corner-green.png');
+    }
+    a, h2, .block-sidebar, .block-sidebar-wide {
+      color: $color-green;
+    }
+    table thead {
+      background-color: $color-green;
+    }
+  }
+
+  &.blue .phb h1,
+  &.default .phb h1 {
+    background-image: url('images/4e-banner-blue.png');
+  }
+  &.red .phb h1 {
+    background-image: url('images/4e-banner-red.png');
+  }
+  &.green .phb h1 {
+    background-image: url('images/4e-banner-green.png');
+  }
+
   .phb {
     position: relative;
     box-sizing: border-box;
-    background-color: $color-bg;
     color: $color-body;
     font-family: $font-serif;
     padding: 0.75in 0.85in;
@@ -76,7 +119,6 @@ $font-sans: Optima;
       bottom: 0;
       width: 12em;
       background-size: contain;
-      background-image: url('images/corner-4e.png');
       background-repeat: no-repeat;
     }
     
@@ -108,7 +150,6 @@ $font-sans: Optima;
     padding: 10pt 0 9pt 0.6in;
     margin-bottom: 12pt;
     color: white;
-    background-image: url('images/border-4e.png');
     column-span: all;
     background-size: contain;
     background-repeat: no-repeat;
@@ -119,7 +160,6 @@ $font-sans: Optima;
     font-size: 16pt;
     margin-top: 10pt;
     margin-bottom: 2pt;
-    color: $color-navy;
   }
 
   h3 {
@@ -138,7 +178,6 @@ $font-sans: Optima;
     border-top: 4px double rgb(219,217,200);
     padding: 1em;
     background: linear-gradient(rgb(219,217,200), white);
-    color: $color-navy;
   }
 
   .block-sidebar {
@@ -146,7 +185,6 @@ $font-sans: Optima;
     background: linear-gradient(to right, rgb(219,217,200), white);
     padding: 1em;
     font-family: $font-sans;
-    color: $color-navy;
   }
 
   p + p {
@@ -176,7 +214,6 @@ $font-sans: Optima;
     font-family: $font-sans;
     thead {
       font-weight: bold;
-      background-color: $color-navy;
       color: white;
       th {
         vertical-align: bottom;

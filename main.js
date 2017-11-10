@@ -83,6 +83,7 @@ const template = [
           if (file) {
             mainWindow.webContents.printToPDF(
               {
+                marginsType: 1,
                 printBackground: true,
                 pageSize: 'Letter'
               },
@@ -136,13 +137,12 @@ const template = [
             type: 'radio',
             click: () => store.set('theme.edition', 'three-five')
           },
-          /*
           {
             label: '4e',
             checked: editionTheme === 'four',
             type: 'radio',
             click: () => store.set('theme.edition', 'four')
-          },*/
+          },
           {
             label: '5e',
             checked: editionTheme === 'five',

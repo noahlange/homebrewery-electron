@@ -1,54 +1,56 @@
 # The Homebrewery
-Welcome, traveler. Sit and tell us of what you have seen -- the unheard of monsters, who slither and bite. Tell us of the wondrous items and and artifacts you have found, their mysteries yet to be unlocked. Of the various vocations and surprising skills you have encountered!
+Welcome, traveler. Sit and tell us of what you have seen -- the unheard of monsters, which slither and bite. Tell us of the wondrous items and and artifacts you have found, their mysteries yet to be unlocked --
 
 ## Homebrew D&D made easy
-`The Homebrewery` makes the creation and sharing of authentic-looking D&D homebrews easy. It uses [Markdown](https://help.github.com/articles/markdown-basics/) and a little CSS magic to make your brews come to life.
+`The Homebrewery` makes the creation and sharing of authentic-looking D&D (3.5E, 4E and 5E) homebrews easy. It uses [Markdown](https://guides.github.com/features/mastering-markdown/) and a little CSS magic to make your brews come to life.
+a
 
-**Try it! **Simply edit the text on the left and watch it *update live* on the right.
+<div class="x-center y-bottom">
+<!-- newline required -->
 
-```note
-##### PDF Exporting
-PDF Printing works best in Chrome. If you are having quality/consistency issues, try using Chrome to print instead.
-
-After clicking the "Print" item in the navbar a new page will open and a print dialog will pop-up.
-* Set the **Destination** to "Save as PDF"
-* Set **Paper Size** to "Letter"
-* If you are printing on A4 paper, make sure to have the "A4 page size snippet" in your brew
-* In **Options** make sure "Background Images" is selected.
-* Hit print and enjoy! You're done!
-
-If you want to save ink or have a monochrome printer, add the **Ink Friendly** snippet to your brew before you print.
+```table-wide
+| Block       | Name              | Edition  |
+|:-----------:|:-----------------:|:--------:|
+| Spell list  | spells            | 5e       |
+| Note        | note              | 5e       |
+| Descriptive | descriptive       | 5e       |
+| Stat Block  | stats, stats-wide | 5e       |
+| Class Table | class, class-wide | 5e       |
+| Table       | table, table-wide | 5e       |
+| TOC         | toc               | 5e       |
+| Sidebar     | sidebar           | 3.5e, 4e |
+| Wide Sidebar| sidebar-wide      | 3.5e, 4e |
 ```
+</div>
 
-## Bugs, Issues, Suggestions?
-Have an idea of how to make `The Homebrewery` better? Or did you find something that wasn't quite right? Head [here](https://github.com/noahlange/homebrewery-electron/issues/new) and let me know!.
+**Try it!** Simply edit the text on the left and watch it *update live* on the right.
 
-## Legal Junk
+Of course, a document isn't of much help if it can't be printed out. Luckily, exporting PDFs with `The Homebrewery` is very straightforward:
+- **Mac**: &#8984;-Shift-E.
+- **Windows**: Ctrl-Shift-E.
+
+Have an idea of how to make `The Homebrewery` better? Or did you find something that wasn't quite right? Head [here](https://github.com/noahlange/homebrewery-electron/issues/new) and let me know!
+
+## Licensing
+
 `The Homebrewery` is licensed using the MIT License, which means you are free to use `The Homebrewery` is any way that you want, except for claiming that you made it yourself.
 
-If you wish to sell or in some way gain profit for what's created on this site, it's your responsibility to ensure you have the proper licenses/rights for any images or resources used.
+If you wish to publicly distribute *any* documents generated with `The Homebrewery`, it's your responsibility to ensure you have the proper licenses and publishing rights for images, fonts and other resources used.
 
-### More Resources
-If you are looking for more 5e Homebrew resources check out [r/UnearthedArcana](https://www.reddit.com/r/UnearthedArcana/) and their list of useful resources [here](https://www.reddit.com/r/UnearthedArcana/comments/3uwxx9/resources_open_to_the_community/).
+\col
 
-## Appendix
+## Markdown
+Markdown is a lightweight markup language that is used to generate the HTML styled by `The Homebrewery`. If Markdown proves insufficient for your needs, you can use a limited subset of HTML to augment your Markdown.
 
-### It's Just Markdown!
-Although `The Homebrewery` uses Markdown, to get all the styling features from the PHB, we had to get a little creative. Some base HTML elements are not used as expected.
-___
-- **Page breaks** are controlled by the author. It's impossible for the app to detect when the end of a page is reached. So to indicate you'd like to start a new page, use the new page snippet - a backslash followed by the word *page*.
-- **Column breaks** are also optionally controlled by the author. Use a backslash followed by the word *col* to break to the next column.
-- **Code Blocks** are used to indicate block elements. Indicate sidebars, notes and other block elements
-- **HTML** can be used to get *just* the right look for your homebrew. I've included some examples in the snippet icons above the editor.
-- **Small Caps** - backticks -- \` \` -- are used to render `small caps`.
+- **Headers**: Headers are denoted with pound signs, the more signs, the smaller the header. Follow the last pound with a space and the text of your header.
+- **Emphasis**: Emphasis is shown with asterisks on either side of a word or phrase -- single asterisks for *italic*, double asterisks for **bold**.
+- **Small caps** - use backticks to render `small caps`.
+- **Links**: Links are created with square brackets (around the text of the link) followed directly with parentheses and the url inside.
+- **Lists**: Undordered lists are made with dashes and can be nested arbitrarily with two spaces. Ordered lists use a number instead of a dash.
+- **Images:** Images use the same format as links, but are prefixed with an exclamation point (!). Currently images must be hosted on a third-party site (imgur, etc.) or provided with an absolute filepath.
+- **Column and page breaks** are left to the author. To start a new page, use a backslash followed by the word *page*. Use a backslash followed by the word *col* to break to the next column.
+- **Fences** are block elements. Indicate sidebars, notes and tables with triple backticks, followed by the name of the block element. Close the block with three more backticks.
 
-### Images
-Currently, images must be hosted online somewhere, like imgur. Use the address to that image to reference it in your brew. Images can be included 'inline' with the text using Markdown-style images. However for background images more control is needed.
-
-Background images should be included as HTML-style img tags. Using inline CSS you can precisely position your image where you'd like it to be. I have added both a inflow image snippet and a background image snippet to give you exmaples of how to do it.
-
-### Crediting Me
-If you'd like to credit `The Homebrewery` in your brew, I'd be flattered! Just reference that you made it with `The Homebrewery`.
 
 <div class='page-number'>1</div>
 <div class='footnote'>PART 1 | FANCINESS</div>

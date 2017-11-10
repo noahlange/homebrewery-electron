@@ -1,3 +1,5 @@
+![Homebrewery](assets/icon.png)
+
 # Homebrewery Electron
 [stolksdorf's](https://github.com/stolksdorf) Homebrewery app, on your desktop,
 with some twists.

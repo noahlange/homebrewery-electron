@@ -34,6 +34,9 @@ code {
   .editor {
     display: none;
   }
+  .preview {
+    margin-top: -2px;
+  }
 }
 
 #react-root {
@@ -58,4 +61,59 @@ code {
 
 .preview img {
   max-width: 100%;
+}
+
+@keyframes spinner {
+  to {transform: rotate(360deg);}
+}
+ 
+.spinner:before {
+  content: '';
+  box-sizing: border-box;
+  position: absolute;
+  top: calc(50% - 96px);
+  left: calc(25% - 96px);
+  width: 192px;
+  height: 192px;
+  margin-top: -10px;
+  margin-left: -10px;
+  border-radius: 50%;
+  border: 12px solid #ccc;
+  border-top-color: #333;
+  animation: spinner .6s linear infinite;
+}
+
+@mixin abs($top, $right, $bottom, $left) {
+  position: absolute;
+  top: $top;
+  right: $right;
+  bottom: $bottom;
+  left: $left;
+  display: flex;
+  flex-direction: column;
+}
+
+.preview {
+  .phb {
+    .x-right { align-items: flex-end; }
+    .x-left { align-items: flex-start; }
+    .x-center { align-items: center; }
+    .y-center { justify-content: center; }
+    .y-top { justify-content: flex-start; }
+    .y-bottom { justify-content: flex-end; }
+    
+    // @todo fix for 3.5E
+    &:nth-child(even) {
+      .x-right, .x-left, .x-center, .y-center {
+        z-index: -10;
+        @include abs(0.65in, 0.65in, 0.65in, 0.85in);
+      }
+    }
+    &:nth-child(odd) {
+      .x-right, .x-left, .x-center, .y-center {
+        z-index: -10;
+        @include abs(0.65in, 0.85in, 0.65in, 0.65in);
+      }
+    }
+  }
 }
