@@ -20,7 +20,7 @@
   },
   "main": "main.js",
   "scripts": {
-    "dist": "yarn run build && build --publish onTag",
+    "dist": "npm run build && build --publish onTag",
     "sass": "sass --watch scss:assets",
     "start": "electron .",
     "build": "tsc",
