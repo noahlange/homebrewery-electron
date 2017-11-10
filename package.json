@@ -46,6 +46,9 @@
     },
     "win": {
       "target": "nsis"
+    },
+    "linux": {
+      "target": "AppImage"
     }
   }
 }
