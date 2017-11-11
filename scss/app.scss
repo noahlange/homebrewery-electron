@@ -1,6 +1,7 @@
 @import 'reset.scss';
 @import 'fonts.scss';
 @import '3.5/phb.scss';
+@import "pathfinder/phb.scss";
 @import '4/phb.scss';
 @import '5/phb.scss';
 
@@ -84,16 +85,6 @@ code {
   animation: spinner .6s linear infinite;
 }
 
-@mixin abs($top, $right, $bottom, $left) {
-  position: absolute;
-  top: $top;
-  right: $right;
-  bottom: $bottom;
-  left: $left;
-  display: flex;
-  flex-direction: column;
-}
-
 .preview {
   .phb {
     .x-right { align-items: flex-end; }
@@ -102,20 +93,6 @@ code {
     .y-center { justify-content: center; }
     .y-top { justify-content: flex-start; }
     .y-bottom { justify-content: flex-end; }
-    
-    // @todo fix for 3.5E
-    &:nth-child(even) {
-      .x-right, .x-left, .x-center, .y-center {
-        z-index: -10;
-        @include abs(0.65in, 0.65in, 0.65in, 0.85in);
-      }
-    }
-    &:nth-child(odd) {
-      .x-right, .x-left, .x-center, .y-center {
-        z-index: -10;
-        @include abs(0.65in, 0.85in, 0.65in, 0.65in);
-      }
-    }
   }
 }
 

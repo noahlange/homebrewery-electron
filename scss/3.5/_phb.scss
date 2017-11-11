@@ -1,3 +1,6 @@
+@import '../mixins.scss';
+
+
 $fonts: (
   header: PterraDactyl,
   body: UglyQua
@@ -9,6 +12,21 @@ $colors: (
 );
 
 .three-five {
+
+  .phb {
+    &:nth-child(even) {
+      .x-right, .x-left, .x-center, .y-center {
+        z-index: -10;
+        @include abs(0.67in, 0.25in, 0.67in, 1in);
+      }
+    }
+    &:nth-child(odd) {
+      .x-right, .x-left, .x-center, .y-center {
+        z-index: -10;
+        @include abs(0.67in, 1in, 0.67in, 0.25in);
+      }
+    }
+  }
 
   &.red .phb:before {
     background-image: url('images/35-bg-red.jpg');

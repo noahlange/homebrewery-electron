@@ -1,3 +1,5 @@
+@import '../mixins.scss';
+
 $color-blue: rgb(29,53,76);
 $color-red: rgb(76, 29, 29);
 $color-green: rgb(29,76,53);
@@ -17,6 +19,20 @@ $font-sans: Optima, Belleza;
     font-style: italic;
   }
 
+  .phb {
+    &:nth-child(even) {
+      .x-right, .x-left, .x-center, .y-center {
+        z-index: -10;
+        @include abs(0.75in, 0.75in, 0.75in, 0.5in);
+      }
+    }
+    &:nth-child(odd) {
+      .x-right, .x-left, .x-center, .y-center {
+        z-index: -10;
+        @include abs(0.75in, 0.5in, 0.75in, 0.75in);
+      }
+    }
+  }
 
   .phb:nth-child(odd) {
     padding-left: 0.75in;

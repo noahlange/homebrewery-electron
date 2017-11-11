@@ -7,7 +7,7 @@ Welcome, traveler. Sit and tell us of what you have seen -- the unheard of monst
 <div class="x-center y-bottom">
 <!-- newline required -->
 
-```table-wide
+```table
 | Block       | Name              | Edition  |
 |:-----------:|:-----------------:|:--------:|
 | Spell list  | spells            | 5e       |
@@ -31,24 +31,25 @@ Of course, a document isn't of much help if it can't be printed out. Luckily, ex
 Have an idea of how to make `The Homebrewery` better? Or did you find something that wasn't quite right? Head [here](https://github.com/noahlange/homebrewery-electron/issues/new) and let me know!
 
 ## Licensing
-
 `The Homebrewery` is licensed using the MIT License, which means you are free to use `The Homebrewery` is any way that you want, except for claiming that you made it yourself.
 
 If you wish to publicly distribute *any* documents generated with `The Homebrewery`, it's your responsibility to ensure you have the proper licenses and publishing rights for images, fonts and other resources used.
 
 \col
 
+```sidebar
 ## Markdown
-Markdown is a lightweight markup language that is used to generate the HTML styled by `The Homebrewery`. If Markdown proves insufficient for your needs, you can use a limited subset of HTML to augment your Markdown.
+Documents styled by `The Homebrewery` are written in Markdown, a markup language.
 
-- **Headers**: Headers are denoted with pound signs, the more signs, the smaller the header. Follow the last pound with a space and the text of your header.
-- **Emphasis**: Emphasis is shown with asterisks on either side of a word or phrase -- single asterisks for *italic*, double asterisks for **bold**.
+- **Headers**: Headers are denoted with pound signs--the more signs, the smaller the header. Follow the final with a space and the text of your header.
+- **Emphasis**: Show emphasis with asterisks on either side of a word or phrase. Use single asterisks for *italic*, double asterisks for **bold**.
 - **Small caps** - use backticks to render `small caps`.
-- **Links**: Links are created with square brackets (around the text of the link) followed directly with parentheses and the url inside.
-- **Lists**: Undordered lists are made with dashes and can be nested arbitrarily with two spaces. Ordered lists use a number instead of a dash.
+- **Links**: Create links with square brackets (around the text of the link) followed directly with parentheses and the url inside.
+- **Lists**: Make undordered lists with dashes, and ordered lists use a number instead of a dash.
 - **Images:** Images use the same format as links, but are prefixed with an exclamation point (!). Currently images must be hosted on a third-party site (imgur, etc.) or provided with an absolute filepath.
 - **Column and page breaks** are left to the author. To start a new page, use a backslash followed by the word *page*. Use a backslash followed by the word *col* to break to the next column.
 - **Fences** are block elements. Indicate sidebars, notes and tables with triple backticks, followed by the name of the block element. Close the block with three more backticks.
+```
 
 <div class='page-number'>1</div>
 <div class='footnote'>PART 1 | FANCINESS</div>

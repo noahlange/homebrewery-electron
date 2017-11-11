@@ -49,6 +49,7 @@ publicly distributing PDFs generated with the Homebrewery.
 - [list of 3.5e fonts](http://www.enworld.org/forum/showthread.php?269337-Font-used-in-the-D-amp-D-3-5-PHB-DMG-and-MM&p=5028438&viewfull=1#post5028438)
 - [list of 4e fonts](http://taxidermicowlbear.weebly.com/dd-fonts.html)
 - Solbera's 5e fonts included
+- [list of Pathfinder fonts](http://www.enworld.org/forum/showthread.php?269188-Fonts-used-in-the-Pathfinder-RPG)
 
 ## Outstanding Issues
 - add AD&D, 2nd Edition themes

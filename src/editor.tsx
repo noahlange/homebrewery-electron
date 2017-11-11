@@ -30,7 +30,7 @@ export default class Editor extends React.Component<any, any> {
           height="1050"
           theme="vs-dark"
           language="markdown"
-          options={ { wordWrap: true } }
+          options={ { wordWrap: true, fontFamily: 'Inconsolata', fontSize: 15 } }
           onChange={ this.props.onChange }
           editorDidMount={ (e, m) => this.editorDidMount(e, m) }
           value={ this.props.value }

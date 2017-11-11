@@ -1,0 +1,158 @@
+.pathfinder {
+
+  $fonts: (
+    sans: ScalySans,
+    serif: Alegreya,
+    heading: Eczar
+  );
+  $colors: (
+    brown_dark: rgb(107,65,0),
+    brown_medium: #a27e4b
+  );
+
+  .phb:nth-child(odd) {
+    &:before {
+      transform: scaleX(-1);
+    }
+  }
+
+  strong {
+    font-weight: bold;
+  }
+  em, blockquote {
+    font-style: italic;
+  }
+
+  h1, h2, h3, h4 {
+    font-family: map_get($fonts, heading);
+  }
+
+  h1 {
+    font-size: 1.5em;
+    line-height: 1em;
+    text-transform: uppercase;
+    font-weight: bold;
+    color: map_get($colors, brown_dark);
+  }
+  h2 {
+    font-size: 1.25em;
+    line-height: 1em;
+    color: map_get($colors, brown_medium);
+    margin-top: 0.75em;
+  }
+  
+  h3 { font-size: 1.15em; }
+  h4 { font-size: 1em; }
+
+  table {
+    margin: 1.5em;
+    font-size: 12px;
+    color: map_get($colors, dark);
+    font-family: ScalySans;
+    td {
+      padding: 0.15em;
+    }
+    th {
+      font-weight: bold;
+      margin-bottom: 0.15em;
+    }
+  }
+
+  .block.block-stats {
+    font-family: ScalySans;
+    font-size: 12px;
+    ul {
+      margin-bottom: 0.5em;
+      padding-left: 1em;
+      text-indent: -1em;
+      list-style-type: none;
+    }
+    h2 {
+      color: black;
+      font-size: 1.15em;
+      line-height: 1.5;
+      font-family: ScalySans;
+      font-variant: small-caps;
+      font-weight: bold;
+    }
+    h3 {
+      font-family: ScalySans;
+      text-transform: uppercase;
+      font-size: 9px;
+      padding-top: 2px;
+      border-top: 1px solid black;
+      border-bottom: 1px solid black;
+      margin: 2px 0px;
+      font-weight: bold;
+    }
+  }
+
+  .block-sidebar {
+    box-sizing: content-box;
+    font-family: ScalySans;
+    border: 1.25em solid transparent;
+    border-image: url('images/pathfinder-border.png') 100;
+    border-left: none;
+    border-right: none;
+    margin: 0.15in 0;
+    padding: 0px 8px 8px 8px;
+    background-color: rgba(244, 241, 215, 0.75);
+    h1, h2, h3, h4, h5, h6 {
+      color: black;
+      font-weight: bold;
+    }
+  }
+
+  .phb .block-class-wide {
+    width: 100%;
+    column-span: all;
+  }
+
+  .phb .block-class,
+  .phb .block-class-wide {
+    break-before: avoid-column;
+    -webkit-column-break-inside: avoid;
+    margin-top: 25px;
+    margin-bottom: 40px;
+    border-image-width: 47px;
+    h5 {
+      margin-bottom: 10px;
+    }
+    tr {
+      border: map_get($colors, medium_brown);
+    }
+  }
+
+  .phb {
+    counter-increment: phb-page-numbers;
+    position: relative;
+    z-index: 15;
+    box-sizing: border-box;
+    overflow: hidden;
+    height: 11in;
+    width: 8.5in;
+    padding: 1in;
+    font-family: Alegreya;
+    column-count: 2;
+    column-fill: auto;
+    column-gap: 0.25in;
+    column-width: auto;
+    font-size: 12.5px;
+    line-height: 1.3;
+    text-align: justify;
+    text-rendering: optimizeLegibility;
+    page-break-before: always;
+    page-break-after: always;
+    &:before {
+      content: ' ';
+      position: absolute;
+      background-size: contain;
+      height: 100%;
+      width: 100%;
+      left: 0;
+      top: 0;
+      z-index: -10;
+      background-image: url('images/pathfinder-bg.jpg');
+    }
+  }
+}
