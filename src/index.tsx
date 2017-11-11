@@ -13,7 +13,6 @@ const text = readFileSync(resolve(__dirname, '../example.md'), 'utf8');
 class App extends React.Component<any, any> {
   public state = {
     value: text,
-    initial: text,
     previewTheme: store.get('theme.preview', 'default'),
     editionTheme: store.get('theme.edition', 'five')
   };
@@ -23,7 +22,7 @@ class App extends React.Component<any, any> {
       writeFileSync(file, this.state.value, 'utf8')
     );
     ipcRenderer.on('open', (e, file) =>
-      this.setState({ initial: readFileSync(file, 'utf8') })
+      this.setState({ value: readFileSync(file, 'utf8') })
     );
     ipcRenderer.on('theme.preview', (e, file) =>
       this.setState({ previewTheme: file })
@@ -43,7 +42,7 @@ class App extends React.Component<any, any> {
         <div className="editor">
           <Editor
             onChange={this.onChange}
-            value={this.state.initial}
+            value={this.state.value}
           />
         </div>
         <div className={`preview ${ this.state.editionTheme } ${this.state.previewTheme}`}>

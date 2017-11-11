@@ -2,7 +2,7 @@
   "name": "homebrewery",
   "license": "MIT",
   "description": "Markdown editor for D&D homebrews",
-  "version": "1.0.4",
+  "version": "1.0.5",
   "author": "Noah Lange <noahrlange@gmail.com>",
   "dependencies": {
     "electron-store": "^1.3.0",

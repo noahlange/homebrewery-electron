@@ -6,6 +6,7 @@ export default class Editor extends React.Component<any, any> {
 
   public editor;
   public state = {
+    value: this.props.value,
     loading: true
   };
 
@@ -32,7 +33,7 @@ export default class Editor extends React.Component<any, any> {
           options={ { wordWrap: true } }
           onChange={ this.props.onChange }
           editorDidMount={ (e, m) => this.editorDidMount(e, m) }
-          defaultValue={ this.props.value }
+          value={ this.props.value }
         />
       </div>
     );

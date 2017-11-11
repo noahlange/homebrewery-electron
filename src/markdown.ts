@@ -6,9 +6,7 @@ const md = new Markdown({
   html: true,
   typographer: true,
   xhtmlOut: true,
-  highlight(code) {
-    return md.render(code);
-  }
+  highlight: code => md.render(`\n${ code }\n'`)
 }).use(fence);
 
 export default function render(text: string) {
