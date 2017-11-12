@@ -1,5 +1,6 @@
 const { dialog, Menu, MenuItem, ipcMain, shell } = require('electron');
-const { writeFileSync, readdirSync } = require('fs');
+const { writeFileSync, readdirSync, mkdirSync } = require('fs');
+const { title } = require('change-case');
 const path = require('path');
 const electron = require('electron');
 const Store = require('electron-store');
@@ -12,189 +13,190 @@ const url = require('url');
 // be closed automatically when the JavaScript object is garbage collected.
 let mainWindow;
 let current;
+let themes = loadThemes();
 
-let previewTheme = store.get('theme.preview');
-let editionTheme = store.get('theme.edition');
-
-const template = [
-  {
-    label: app.getName(),
-    submenu: [
-      { role: 'about' },
-      { type: 'separator' },
-      { role: 'services', submenu: [] },
-      { type: 'separator' },
-      { role: 'hide' },
-      { role: 'hideothers' },
-      { role: 'unhide' },
-      { type: 'separator' },
-      { role: 'quit' }
-    ]
-  },
-  {
-    label: 'File',
-    submenu: [
-      {
-        label: 'Open',
-        role: 'open',
-        accelerator: 'Cmd+O',
-        click: () => {
-          const files = dialog.showOpenDialog({ properties: ['openFile'] });
-          if (files) {
-            current = files[0];
-            mainWindow.webContents.send('open', files[0]);
+function makeMenu() {
+  return [
+    {
+      label: app.getName(),
+      submenu: [
+        { role: 'about' },
+        { type: 'separator' },
+        { role: 'services', submenu: [] },
+        { type: 'separator' },
+        { role: 'hide' },
+        { role: 'hideothers' },
+        { role: 'unhide' },
+        { type: 'separator' },
+        { role: 'quit' }
+      ]
+    },
+    {
+      label: 'File',
+      submenu: [
+        {
+          label: 'Open',
+          role: 'open',
+          accelerator: 'Cmd+O',
+          click: () => {
+            const files = dialog.showOpenDialog({ properties: ['openFile'] });
+            if (files) {
+              current = files[0];
+              mainWindow.webContents.send('open', files[0]);
+            }
           }
-        }
-      },
-      {
-        label: 'Save',
-        role: 'save',
-        accelerator: 'Cmd+S',
-        click() {
-          if (current) {
-            mainWindow.webContents.send('save', current);
-          } else {
+        },
+        {
+          label: 'Save',
+          role: 'save',
+          accelerator: 'Cmd+S',
+          click() {
+            if (current) {
+              mainWindow.webContents.send('save', current);
+            } else {
+              const file = dialog.showSaveDialog();
+              if (file) {
+                current = file;
+                mainWindow.webContents.send('save', file);
+              }
+            }
+          }
+        },
+        {
+          label: 'Save As',
+          role: 'save-as',
+          accelerator: 'Cmd+Shift+S',
+          click: () => {
             const file = dialog.showSaveDialog();
             if (file) {
-              current = file;
               mainWindow.webContents.send('save', file);
+              current = file;
             }
           }
-        }
-      },
-      {
-        label: 'Save As',
-        role: 'save-as',
-        accelerator: 'Cmd+Shift+S',
-        click: () => {
-          const file = dialog.showSaveDialog();
-          if (file) {
-            mainWindow.webContents.send('save', file);
-            current = file;
-          }
-        }
-      },
-      {
-        label: 'Export as PDF',
-        role: 'print',
-        accelerator: 'Cmd+Shift+E',
-        click() {
-          const file = dialog.showSaveDialog();
-          if (file) {
-            mainWindow.webContents.printToPDF(
-              {
-                marginsType: 1,
-                printBackground: true,
-                pageSize: 'Letter'
-              },
-              (err, data) => {
-                writeFileSync(file, data);
-              }
-            );
-          }
-        }
-      },
-      { role: 'quit', label: 'Quit' }
-    ]
-  },
-  {
-    label: 'Edit',
-    submenu: [
-      { role: 'undo' },
-      { role: 'redo' },
-      { type: 'separator' },
-      { role: 'cut' },
-      { role: 'copy' },
-      { role: 'paste' },
-      { role: 'pasteandmatchstyle' },
-      { role: 'delete' },
-      { role: 'selectall' }
-    ]
-  },
-  {
-    label: 'View',
-    submenu: [
-      { role: 'reload' },
-      { role: 'forcereload' },
-      { role: 'toggledevtools' },
-      { type: 'separator' },
-      { role: 'resetzoom' },
-      { role: 'zoomin' },
-      { role: 'zoomout' },
-      { type: 'separator' },
-      { role: 'togglefullscreen' }
-    ]
-  },
-  {
-    label: 'Themes',
-    submenu: [
-      {
-        label: 'Edition',
-        submenu: [
-          {
-            label: '3.5e',
-            checked: editionTheme === 'three-five',
-            type: 'radio',
-            click: () => store.set('theme.edition', 'three-five')
-          },
-          {
-            label: '4e',
-            checked: editionTheme === 'four',
-            type: 'radio',
-            click: () => store.set('theme.edition', 'four')
-          },
-          {
-            label: '5e',
-            checked: editionTheme === 'five',
-            type: 'radio',
-            click: () => store.set('theme.edition', 'five')
-          }
-        ]
-      },
-      {
-        label: 'Preview',
-        submenu: [
-          {
-            label: 'Default',
-            type: 'radio',
-            checked: previewTheme === 'default',
-            click: () => {
-              store.set('theme.preview', 'default');
-            }
-          },
-          {
-            label: 'Red',
-            type: 'radio',
-            checked: previewTheme === 'red',
-            click: () => {
-              store.set('theme.preview', 'red');
-            }
-          },
-          {
-            label: 'Green',
-            type: 'radio',
-            checked: previewTheme === 'green',
-            click: () => {
-              store.set('theme.preview', 'green');
-            }
-          },
-          {
-            label: 'Blue',
-            type: 'radio',
-            checked: previewTheme === 'Blue',
-            click: () => {
-              store.set('theme.preview', 'blue');
+        },
+        {
+          label: 'Export as PDF',
+          role: 'print',
+          accelerator: 'Cmd+Shift+E',
+          click() {
+            const file = dialog.showSaveDialog();
+            if (file) {
+              mainWindow.webContents.printToPDF(
+                {
+                  marginsType: 1,
+                  printBackground: true,
+                  pageSize: 'Letter'
+                },
+                (err, data) => {
+                  writeFileSync(file, data);
+                }
+              );
             }
           }
-        ]
-      }
-    ]
-  },
-  {
-    role: 'window',
-    submenu: [{ role: 'minimize' }, { role: 'close' }]
+        },
+        { role: 'quit', label: 'Quit' }
+      ]
+    },
+    {
+      label: 'Edit',
+      submenu: [
+        { role: 'undo' },
+        { role: 'redo' },
+        { type: 'separator' },
+        { role: 'cut' },
+        { role: 'copy' },
+        { role: 'paste' },
+        { role: 'pasteandmatchstyle' },
+        { role: 'delete' },
+        { role: 'selectall' }
+      ]
+    },
+    {
+      label: 'View',
+      submenu: [
+        { role: 'reload' },
+        { role: 'forcereload' },
+        { role: 'toggledevtools' },
+        { type: 'separator' },
+        { role: 'resetzoom' },
+        { role: 'zoomin' },
+        { role: 'zoomout' },
+        { type: 'separator' },
+        { role: 'togglefullscreen' }
+      ]
+    },
+    {
+      label: 'Themes',
+      submenu: makeThemesMenu()
+    },
+    {
+      role: 'window',
+      submenu: [{ role: 'minimize' }, { role: 'close' }]
+    }
+  ]
+}
+
+function loadTheme(theme, styles, variant) {
+  store.set('theme.id', theme);
+  store.set('theme.css', styles);
+  if (variant) {
+    store.set('theme.variant', variant);
   }
-];
+  setMenu();
+}
+
+function makeThemesMenu() {
+  return [
+    {
+      label: 'Tufte',
+      click: () => loadTheme('tufte', '../assets/tufte.css')
+    },
+    ...themes.map(theme => {
+    const themeMatch = id => id === store.get('theme.id');
+    const colorMatch = color => color === store.get('theme.variant');
+    let menu = theme.variants ? {
+      label: theme.name,
+      submenu: theme.variants.map(v => ({
+        label: title(v),
+        checked: themeMatch(theme.id) && colorMatch(v),
+        type: 'checkbox',
+        click: () => loadTheme(theme.id, theme.css, v)
+      }))
+    } : {
+      label: theme.name,
+      checked: themeMatch(theme.id),
+      type: 'checkbox',
+      click: () => loadTheme(theme.id, theme.css)
+    };
+    return menu;
+  }) ];
+}
+
+function loadThemes() {
+  const storedir = path.dirname(store.path);
+  let themes;
+  try {
+    themes = readdirSync(path.resolve(storedir, './themes'));
+  } catch (e) {
+    mkdirSync(path.resolve(storedir, './themes'));
+    themes = readdirSync(path.resolve(storedir, './themes'));
+  }
+  return themes.filter(f => !f.startsWith('.')).map(dir => {
+    const theme_dir = path.resolve(storedir, './themes', dir);
+    // @todo - sanity check that file actually exists
+    const manifest = require(theme_dir + '/package.json');
+    const id = manifest.name;
+    const name = manifest.description;
+    const variants = manifest.provides;
+    const css = manifest.styles || path.resolve(theme_dir, 'assets/styles.css');
+    return { id, name, path: theme_dir, variants, css };
+  });
+}
+
+function setMenu() {
+  const menu = Menu.buildFromTemplate(makeMenu());
+  Menu.setApplicationMenu(menu);
+}
 
 function createWindow() {
   // Create the browser window.
@@ -205,8 +207,7 @@ function createWindow() {
     titleBarStyle: 'hidden'
   });
 
-  const menu = Menu.buildFromTemplate(template);
-  Menu.setApplicationMenu(menu);
+  setMenu();
   // and load the index.html of the app.
   mainWindow.loadURL(
     url.format({
@@ -216,20 +217,17 @@ function createWindow() {
     })
   );
 
-  store.onDidChange('theme.preview', newValue => {
-    mainWindow.webContents.send('theme.preview', newValue);
+  store.onDidChange('theme.id', id => {
+    mainWindow.webContents.send('theme.id', id);
   });
 
-  store.onDidChange('theme.editor', newValue => {
-    mainWindow.webContents.send('theme.editor', newValue);
+  store.onDidChange('theme.variant', variant => {
+    mainWindow.webContents.send('theme.variant', variant);
   });
 
-  store.onDidChange('theme.edition', newValue => {
-    mainWindow.webContents.send('theme.edition', newValue);
+  store.onDidChange('theme.css', css => {
+    mainWindow.webContents.send('theme.css', css);
   });
-
-  // Open the DevTools.
-  // mainWindow.webContents.openDevTools()
 
   // Emitted when the window is closed.
   mainWindow.on('closed', function() {

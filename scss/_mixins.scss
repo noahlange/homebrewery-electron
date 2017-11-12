@@ -1,9 +1,0 @@
-@mixin abs($top, $right, $bottom, $left) {
-  position: absolute;
-  top: $top;
-  right: $right;
-  bottom: $bottom;
-  left: $left;
-  display: flex;
-  flex-direction: column;
-}

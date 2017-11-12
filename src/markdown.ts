@@ -4,6 +4,7 @@ import fence from './fence';
 
 const md = new Markdown({
   html: true,
+  breaks: true,
   typographer: true,
   xhtmlOut: true,
   highlight: code => md.render(code)

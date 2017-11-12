@@ -2,39 +2,33 @@ import * as React from 'react';
 import { render } from 'react-dom';
 import Editor from './editor';
 import Preview from './preview';
-import { ipcRenderer } from 'electron';
+import { ipcRenderer as ipc } from 'electron';
 import { readFileSync, writeFileSync } from 'fs';
 import { resolve } from 'path';
 import * as Store from 'electron-store';
 const store = new Store();
 
-const text = readFileSync(resolve(__dirname, '../example.md'), 'utf8');
-
 class App extends React.Component<any, any> {
   public state = {
-    value: text,
-    previewTheme: store.get('theme.preview', 'default'),
-    editionTheme: store.get('theme.edition', 'five')
+    value: '',
+    variant: store.get('theme.variant', ''),
+    edition: store.get('theme.id', 'tufte'),
+    css: store.get('theme.css', '../assets/tufte.css')
   };
 
   public componentDidMount() {
-    ipcRenderer.on('save', (e, file) =>
+    ipc.on('save', (e, file) =>
       writeFileSync(file, this.state.value, 'utf8')
     );
-    ipcRenderer.on('open', (e, file) =>
+    ipc.on('open', (e, file) =>
       this.setState({ value: readFileSync(file, 'utf8') })
     );
-    ipcRenderer.on('theme.preview', (e, file) =>
-      this.setState({ previewTheme: file })
-    );
-    ipcRenderer.on('theme.edition', (e, editionTheme) => {
-      this.setState({ editionTheme });
-    });
+    ipc.on('theme.variant', (e, variant) => this.setState({ variant }));
+    ipc.on('theme.id', (e, edition) => this.setState({ edition }));
+    ipc.on('theme.css', (e, css) => this.setState({ css }));
   }
 
-  public onChange = (value, e) => {
-    this.setState({ value });
-  };
+  public onChange = (value, e) => this.setState({ value });
 
   public render() {
     return (
@@ -45,9 +39,10 @@ class App extends React.Component<any, any> {
             value={this.state.value}
           />
         </div>
-        <div className={`preview ${ this.state.editionTheme } ${this.state.previewTheme}`}>
+        <div className={`preview ${ this.state.edition } ${this.state.variant}`}>
           <Preview value={this.state.value} />
         </div>
+        <link type="text/css" rel="stylesheet" href={ this.state.css } />
       </div>
     );
   }
