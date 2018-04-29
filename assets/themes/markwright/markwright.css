@@ -1,0 +1,30 @@
+@import "./layout.css";
+@import "./theme.css";
+
+@font-face {
+  font-family: Inconsolata;
+  src: url('../../fonts/Inconsolata.otf');
+}
+
+/** VARIABLES **/
+
+:root {
+  --page-height: 11in;
+  --page-width: 8.5in;
+  --inner-width: 7in;
+  --inner-height: 8.5in;
+  --col-width: 3.25in;
+  --col-height: 8.5in;
+  --col-gutter: 0.25in;
+  --margin-inner: 0.5in;
+  --margin-outer: 0.8in;
+  --header-margin: 0.5in;
+  --grey-light: #efefef;
+
+  --font-sans: -apple-system, BlinkMacSystemFont, "Helvetica Neue", 'Segoe UI', Roboto, Arial, sans-serif, 'Apple Color Emoji', 'Segoe UI Emoji',
+    'Segoe UI Symbol';
+  --font-mono: Inconsolata, monospace;
+  --font-body: var(--font-sans);
+  --font-heading: var(--font-sans);
+  --font-title: var(--font-sans);
+}

@@ -1,0 +1,108 @@
+/** LAYOUT **/
+
+body { margin: 0; }
+
+.mw {
+  display: table;
+  clear: both;
+  width: var(--page-width);
+  height: var(--page-height);
+}
+
+.mw-contents {
+  display: flex;
+}
+
+.mw .break,
+.mw-break,
+.break {
+  page-break-after: always;
+  break-after: always;
+}
+
+.mw-column {
+  flex-basis: var(--col-width);
+  max-width: var(--col-width);
+  flex-grow: 0;
+  flex-shrink: 0;
+}
+
+.mw-page-display {
+  display: flex;
+}
+
+.mw-page-display > div {
+  margin-right: 1rem;
+}
+
+.mw-page {
+  position: relative;
+  height: var(--page-height);
+  width: var(--page-width);
+}
+
+.mw-page:before {
+  content: '';
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  top: 0;
+  left: 0;
+}
+
+.mw-odd .mw-header,
+.mw-odd .mw-pagination,
+.mw-odd .mw-body {
+  margin-right: var(--margin-inner);
+  margin-left: var(--margin-outer);
+}
+
+.mw-even .mw-header,
+.mw-even .mw-pagination,
+.mw-even .mw-body {
+  margin-left: var(--margin-inner);
+  margin-right: var(--margin-outer);
+}
+
+.mw-header {
+  top: var(--header-margin);
+  position: relative;
+  top: 2rem;
+}
+
+.mw-pagination {
+  position: absolute;
+  left: 0;
+  right: 0;
+  bottom: var(--header-margin);
+}
+
+.mw-even .mw-header,
+.mw-even .mg-pagination {
+  text-align: right;
+}
+
+.mw-odd .mw-header {
+  text-align: left;
+}
+
+.mw-body {
+  display: flex;
+  flex-direction: column;
+  position: absolute;
+  width: var(--inner-width);
+  height: var(--inner-height);
+  top: 1in;
+  bottom: 1in;
+}
+
+.mw-column-separator {
+  min-width: var(--col-gutter);
+  height: 100%;
+}
+
+.mw-footnotes:not(.mw-empty) {
+  border-top: 1px solid var(--grey-light);
+  margin-top: 0.5rem;
+  padding-top: 0.5rem;
+}

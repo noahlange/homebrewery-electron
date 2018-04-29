@@ -13,7 +13,6 @@ const url = require('url');
 // be closed automatically when the JavaScript object is garbage collected.
 let mainWindow;
 let current;
-let themes = loadThemes();
 
 function makeMenu() {
   return [
@@ -126,72 +125,12 @@ function makeMenu() {
       ]
     },
     {
-      label: 'Themes',
-      submenu: makeThemesMenu()
-    },
-    {
       role: 'window',
       submenu: [{ role: 'minimize' }, { role: 'close' }]
     }
   ]
 }
 
-function loadTheme(theme, styles, variant) {
-  store.set('theme.id', theme);
-  store.set('theme.css', styles);
-  if (variant) {
-    store.set('theme.variant', variant);
-  }
-  setMenu();
-}
-
-function makeThemesMenu() {
-  return [
-    {
-      label: 'Tufte',
-      click: () => loadTheme('tufte', '../assets/tufte.css')
-    },
-    ...themes.map(theme => {
-    const themeMatch = id => id === store.get('theme.id');
-    const colorMatch = color => color === store.get('theme.variant');
-    let menu = theme.variants ? {
-      label: theme.name,
-      submenu: theme.variants.map(v => ({
-        label: title(v),
-        checked: themeMatch(theme.id) && colorMatch(v),
-        type: 'checkbox',
-        click: () => loadTheme(theme.id, theme.css, v)
-      }))
-    } : {
-      label: theme.name,
-      checked: themeMatch(theme.id),
-      type: 'checkbox',
-      click: () => loadTheme(theme.id, theme.css)
-    };
-    return menu;
-  }) ];
-}
-
-function loadThemes() {
-  const storedir = path.dirname(store.path);
-  let themes;
-  try {
-    themes = readdirSync(path.resolve(storedir, './themes'));
-  } catch (e) {
-    mkdirSync(path.resolve(storedir, './themes'));
-    themes = readdirSync(path.resolve(storedir, './themes'));
-  }
-  return themes.filter(f => !f.startsWith('.')).map(dir => {
-    const theme_dir = path.resolve(storedir, './themes', dir);
-    // @todo - sanity check that file actually exists
-    const manifest = require(theme_dir + '/package.json');
-    const id = manifest.name;
-    const name = manifest.description;
-    const variants = manifest.provides;
-    const css = manifest.styles || path.resolve(theme_dir, 'assets/styles.css');
-    return { id, name, path: theme_dir, variants, css };
-  });
-}
 
 function setMenu() {
   const menu = Menu.buildFromTemplate(makeMenu());
@@ -199,6 +138,7 @@ function setMenu() {
 }
 
 function createWindow() {
+
   // Create the browser window.
   mainWindow = new BrowserWindow({
     width: 1680,
@@ -216,18 +156,6 @@ function createWindow() {
       slashes: true
     })
   );
-
-  store.onDidChange('theme.id', id => {
-    mainWindow.webContents.send('theme.id', id);
-  });
-
-  store.onDidChange('theme.variant', variant => {
-    mainWindow.webContents.send('theme.variant', variant);
-  });
-
-  store.onDidChange('theme.css', css => {
-    mainWindow.webContents.send('theme.css', css);
-  });
 
   // Emitted when the window is closed.
   mainWindow.on('closed', function() {

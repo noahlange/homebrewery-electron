@@ -1,24 +1,44 @@
+import { ipcRenderer as ipc } from 'electron';
+import Markwright from 'markwright';
 import * as React from 'react';
-import markdown from './markdown';
+import { resolve } from 'path';
+import * as Typography from 'typography';
+import github from 'typography-theme-github';
 
 export default class Preview extends React.Component<any, any> {
-  public renderPage(text: string, i: number) {
-    return (
-      <div
-        className="phb"
-        key={i}
-        dangerouslySetInnerHTML={{ __html: markdown(text) }}
-      />
-    );
-  }
+  public state = {
+    content: '',
+    theme: 'markwright',
+    variant: '',
+    css: ''
+  };
 
-  public renderPages() {
-    return this.props.value
-      .split('\\page')
-      .map((page, i) => this.renderPage(page, i));
+  public componentDidMount() {
+    ipc.on('editor.change', (e, content) => this.setState({ content }));
+    ipc.on('editor.theme', (e, theme) => this.setState({ theme }));
+    ipc.on('editor.variant', (e, variant) => this.setState({ variant }));
+    this.setState({ css: new Typography(github).toString() });
   }
 
   public render() {
-    return <div>{this.renderPages()}</div>;
+    const defaultTheme = this.state.theme === 'markwright';
+    const path = resolve(
+      __dirname,
+      `../assets/themes/${ this.state.theme }/${ this.state.theme }.css`
+    );
+    return (
+      <div className={ this.state.variant }>
+        { defaultTheme
+          ? <style type="text/css" data-no-css-polyfill>{ this.state.css }</style>
+          : null 
+        }
+        <link
+          rel="stylesheet"
+          type="text/css"
+          href={path}
+        />
+        <Markwright content={this.state.content} />
+      </div>
+    );
   }
 }

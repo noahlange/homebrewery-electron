@@ -6,6 +6,7 @@
     "outDir": "lib",
     "jsx": "react",
     "sourceMap": true,
-    "moduleResolution": "node"
+    "moduleResolution": "node",
+    "experimentalDecorators": true
   }
 }

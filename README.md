@@ -25,11 +25,5 @@ npm run start
 ```
 
 ## Changes
-Syntax is slightly different. Instead of being determined with a combinations
-of blockquotes, line rules and other things, everything that isn't plain text
-or a one-column table is enclosed in triple backticks - like a code block in
-standard Markdown.
-
-However, instead of a language, each block is given a name that corresponds to
-some particular kind of styling. These blocks can be custom for each theme; you
-should check the theme's README for a list of blokc types.
+Syntax is slightly different than the Homebrewery proper. Instead of being determined with a combinations of blockquotes, line rules and other things, everything that isn't plain text
+or a one-column table is enclosed in triple colons - ::: - followed by a word denoting the block type.

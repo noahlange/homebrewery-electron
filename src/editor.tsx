@@ -26,7 +26,7 @@ export default class Editor extends React.Component<any, any> {
     return (
       <div className={ this.state.loading ? 'spinner' : '' }>
         <MonacoEditor
-          width="calc(100vw - 8.5in)"
+          width="calc(100vw - 8.5in - 2rem)"
           height="1050"
           theme="vs-dark"
           language="markdown"
